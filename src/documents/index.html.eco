@@ -1,0 +1,40 @@
+---
+layout: 'default'
+title: 'Home'
+---
+<!-- Example row of columns -->
+<!--<div class="row" class="text-center"> -->
+<div class="home-detail-container">
+    <div class="home-col">
+        <h2>Easy</h2>
+        <div class="home-detail">
+            <img src="<%= @getUrl('/images/easy.png') %>" height="70">
+        </div>
+	<div class="descr">
+	    With its Python integration, SociaLite queries can be simply extended with Python functions.
+	    The interactive shell makes it convenient to execute queries and examine the result.
+	</div>
+    </div>
+
+    <div class="home-col">
+        <h2>Fast</h2>
+        <div class="home-detail">
+            <img src="<%= @getUrl('/images/rocket.png') %>" height="70">
+        </div>
+	<div class="descr">
+            SociaLite queries are compiled to highly optimized parallel code. 
+            The compiled code can be up to 1000x faster than equivalent Hadoop programs.
+	</div>
+    </div>
+
+    <div class="home-col">
+        <h2>Hadoop-friendly</h2>
+        <div class="home-detail">
+            <img src="<%= @getUrl('/images/hadoop-bw.png') %>" height="70">
+        </div>
+	<div class="descr">
+            SociaLite is compatible with Hadoop with its HDFS inferfaces. Integration with YARN is planned, and being worked on.
+	</div>
+    </div>
+  </div>
+</div>

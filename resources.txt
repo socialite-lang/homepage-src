@@ -1,0 +1,8 @@
+
+* References:
+    http://getbootstrap.com/2.3.2/index.html
+* Background images:
+    http://bg.siteorigin.com/
+* Icons:
+    http://www.iconsdb.com/
+    http://fontawesome.io/
