@@ -43,7 +43,7 @@ docpadConfig = {
 			styles: [
 				"/styles/twitter-bootstrap.css"
 				"/styles/style.css"
-				"/styles/default.css"
+				"/styles/googlecode.css"
 			]
 
 			# Scripts
@@ -52,6 +52,7 @@ docpadConfig = {
 				"//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"
 				"/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"
 				"/scripts/script.js"
+				"/scripts/copybutton.js"
 			]
 
 			getUrl: (document) ->
@@ -100,6 +101,9 @@ docpadConfig = {
 	# Plugins
 
 	plugins:
+		highlightjs:
+			style: 'googlecode'
+
 		downloader:
 			downloads: [
 				{

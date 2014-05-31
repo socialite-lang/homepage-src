@@ -13,17 +13,18 @@ SociaLite is a parallel/distributed query language. SociaLite queries are embedd
 To start using the SociaLite interactive shell, first [install SociaLite](../install) and run ```bin/socialite```. To run a script, pass the script name such as ```bin/socialite script-name.py```.
 The SociaLite interactive shell is basically a Jython shell extended to support SociaLite queries. 
 Normally the shell expects Python code, and SociaLite queries are enclosed in backtik(`), like following.
+Click the <b>>>></b> on the top-right to hide the prompts.
 
-```python
+``` python
 >>> print "Python code"
-Python code
+'''Python code'''
 >>> # Next two lines are SociaLite code
 >>> `Friend(String n, String f).
->>>  Friend(n, f) :- n="John", f="Tom".`
+...  Friend(n, f) :- n="John", f="Tom".`
 >>> # Iterating over a table
 >>> for n, f in `Friend(n, f)`:
->>>     print n, f
-John    Tom
+...     print n, f
+'''John    Tom'''
 ```
 
 The above SociaLite query creates a two-column table *Friend*, inserts one tuple {"John", "Tom"} into the table, and iterates over the table to print the tuples.
@@ -32,7 +33,7 @@ The above SociaLite query creates a two-column table *Friend*, inserts one tuple
 
 In SociaLite, data is stored in (in-memory) tables, which can be declared as following.
 
-```python
+``` python
 >>> `FriendNum(String name, int num).`
 ```
 
@@ -56,7 +57,7 @@ Columns can have options; the followings are some of popular options.
 
 To iterate elements over a table, you can simply do following
 
-```python
+``` python
 >>> for i, j, f in `Foo(i, j, f)`:
 ...     print i,j,f
 ```
@@ -70,7 +71,7 @@ In SociaLite, programming logic is expressed in *rules*. An example of a rule is
 ```python
 >>> # first, declare tables
 >>> `Foaf(String a, String b) indexby a.
->>>  Friend(String a, String b) indexby a.`
+...  Friend(String a, String b) indexby a.`
 >>> # then, run the following rule
 >>> `Foaf(i, ff) :- Friend(i, f), Friend(f, ff).`
 ```
@@ -90,7 +91,7 @@ In the following example, Foaf table stores friends as well as friends-of-friend
 
 ```python
 >>> `Foaf(i, f) :- Friend(i, f).
->>>  Foaf(i, ff) :- Friend(i, f), Friend(f, ff).`
+...  Foaf(i, ff) :- Friend(i, f), Friend(f, ff).`
 ```
 
 The first rule adds tuples from Friend table into Foaf table, and the next rule adds friends-of-friends to Foaf table. Basically the result of the two rules are unioned and stored in Foaf table.
@@ -136,16 +137,28 @@ We define an aggregate function *incBy* that takes two numbers and returns the s
 SociaLite supports various built-in functions and aggregate functions.
 Here we list a few of them; for a complete list, please see [Documentation](../documentation).
 
-    $read("path-to-file"): returns lines in a given file, e.g. l=$read("./data.txt")
-    $split("src-str", "delim" [, maxsplit]): returns splitted string, e.g. (a,b,c)=$split(line, ";")
-    $splitIter("src-str", "delim")
-
-    $max(n)/min(n): aggregate function computing max/min
-    $sum(n): aggregate function summing up
+<table class="table-striped table-bordered table-condensed" width="720" style="margin-left:20px">
+<thead> <tr>
+<th class="span3">Function </th> <th class="span4">Description </th>
+</tr> </thead>
+<tbody>
+<tr><td>$read("path-to-file")</td>
+    <td>returns lines in a given file. e.g. l=$read("./a.txt") </td></tr>
+<tr><td>$split("src-str", "delim"[, maxsplit])</td>
+    <td>returns the splitted string. e.g. (a,b,c)=$split(line, ";") </td></tr>
+<tr><td>$splitIter("src-str", "delim")</td>
+    <td>splits the string, and returns the splitted string one by one. e.g. a=$splitIter(line, "\t")</td></tr>
+<tr><td>$max(n), $min(n)</td>
+    <td>aggregate function computing max/min</td></tr>
+<tr><td>$sum(n)</td>
+    <td>aggregate function that computes the sum</td></tr>
+</tr>
+</tbody>
+</table>
 
 For example, to read comma-separated values in a text file, you can write as following:
 
-```
+```python
 >>> `Values(int a, int b).`
 >>> `Values(a,b) :- l=read("path/to/file.txt"), (v1,v2)=$split(l), a=$toInt(v1), b=$toInt(v2).`
 ```
@@ -159,7 +172,7 @@ The SociaLite programs can run on a cluster running SociaLite servers. Setting u
 SociaLite supports distributed tables whose partitions are stored across cluster machines.
 A distributed table can be declared using a location operator [] in its first column as in following.
 
-```python
+``` python
 >>> `Foo[int i:0..100](double d).
 >>>  Bar[int a]((int b)).
 >>>  Qux[String s](int b).`
@@ -189,7 +202,7 @@ Rules that are accessing one or more distributed tables are distributed rules. A
 
 We declare two distributed tables (with nested second columns) and we compute friends-of-friends with the distributed tables. The rule requires distributed join operation; in the rule body, the two terms -- *Friend[i](f)* and *Friend[f](ff)* -- have different values in the partitioning column -- *i* and *f*. Hence tuples from the first term might need to be sent to other machines for the join operation. That is, tuple {i,f} stored in one machine (determined by *i*) needs to be transfered to another machine, where tuple {f, ff} is stored. Then the result tuple {i, ff} needs to be transfered back to be stored to Foaf.
 
-Users may want to re-order the terms in the rule body to minimize data communication for better performance. For example, in the following example, 
+Users may want to re-order the terms in the rule body to minimize data communication for better performance. For example, in the following example, <i>Rule 1</i> has more communication than <i>Rule 2</i>.
 
 ```python
 >>> `TriangleCount[int i:0..0](int cnt).`

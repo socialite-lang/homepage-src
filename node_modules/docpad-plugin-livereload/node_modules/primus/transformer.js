@@ -1,6 +1,7 @@
 'use strict';
 
 var querystring = require('querystring').parse
+  , EventEmitter = require('eventemitter3')
   , url = require('url').parse;
 
 //
@@ -12,7 +13,7 @@ function noop() {}
  * Transformer skeletons
  *
  * @constructor
- * @param {Primus} primus Reference to the Primus.
+ * @param {Primus} primus Reference to the Primus instance.
  * @api public
  */
 function Transformer(primus) {
@@ -23,10 +24,11 @@ function Transformer(primus) {
   this.service = null;          // Stores the real-time service.
   this.buffer = null;           // Buffer of the library.
 
+  EventEmitter.call(this);
   this.initialise();
 }
 
-Transformer.prototype.__proto__ = require('events').EventEmitter.prototype;
+Transformer.prototype.__proto__ = EventEmitter.prototype;
 
 //
 // Simple logger shortcut.
@@ -63,8 +65,13 @@ Transformer.prototype.initialise = function initialise() {
   var server = this.primus.server
     , transformer = this;
 
-  server.listeners('request').map(this.on.bind(this, 'previous::request'));
-  server.listeners('upgrade').map(this.on.bind(this, 'previous::upgrade'));
+  server.listeners('request').forEach(function each(fn) {
+    transformer.on('previous::request', fn);
+  });
+
+  server.listeners('upgrade').forEach(function each(fn) {
+    transformer.on('previous::upgrade', fn);
+  });
 
   //
   // Remove the old listeners as we want to be the first request handler for all
@@ -220,7 +227,7 @@ Transformer.prototype.test = function test(req) {
 //
 // Make the transporter extendable.
 //
-Transformer.extend = require('extendable');
+Transformer.extend = require('predefine').extend;
 
 //
 // Expose the transformer's skeleton.

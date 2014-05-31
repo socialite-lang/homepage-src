@@ -46,4 +46,4 @@ If you see the following message, the installation for a single machine is compl
 
 11. Optionally, you can change log level in ```conf/log4j.properties```.
 
-12. Run ```bin/start-servers.sh``` to start master/slave servers. ```bin/stop-servers.sh``` will stop all the running master/slave servers, and ```bin/kill-servers.sh``` will force stop all the servers.
+12. Run ```bin/start-servers.sh``` to start master/slave servers. ```bin/stop-servers.sh``` will stop all the running master/slave servers, and ```bin/kill-servers.sh``` will force stop all the servers. The script ```bin/tail-logs``` can be used to check the recent logs in master/slave servers.

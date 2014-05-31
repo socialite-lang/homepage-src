@@ -53,8 +53,8 @@ body
 	margin-top: -9px
 	padding-left: 100px
 	padding-right: 100px
-	padding-top: 20px
-	padding-bottom: 55px
+	padding-top: 15px
+	padding-bottom: 45px
 	border-top: 1px solid #304050
 	border-bottom: 7px solid #B0C0D0
 	margin-left: auto
@@ -62,18 +62,32 @@ body
 	min-width: 1050px
 
 .home-banner h1
-	font-size: 94px
-	font-weight: 620
+	font-size: 79px
+	font-weight: 700
 	-webkit-text-fill-color: transparent
 	background: -webkit-linear-gradient(45deg, #ffffff, #A0B8CF)
 	-webkit-background-clip: text
 
 .home-banner h2
-	font-size: 40px
-	font-weight: 200
+	font-size: 41px
+	font-weight: 400
+	margin-top: 17px
 	-webkit-text-fill-color: transparent
 	background: -webkit-linear-gradient(45deg, #ffffff, #607080)
 	-webkit-background-clip: text
+	margin-left: auto
+	margin-right: auto
+	width: 1010px
+
+.home-banner h3
+	font-size: 29px
+	font-weight: 300
+	margin-top: 10px
+	color: #DEDEDE
+	line-height: 1.2em
+	margin-left: auto
+	margin-right: auto
+	width: 1010px
 
 .home-banner .container
 	width: 640px
@@ -101,7 +115,7 @@ body
 .home-banner .btn-green
 	background-color: #006dcc;
 	background-image: -moz-linear-gradient(top, #7bec12, #3f6900);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#7bec12), to(#3f6900));
 	background-image: -webkit-linear-gradient(top, #7bec12, #3f6900);
 	background-image: -o-linear-gradient(top, #7bec12, #3f6900);
 	background-image: linear-gradient(to bottom, #7bec12, #3f6900);
@@ -110,12 +124,21 @@ body
 .home-banner .btn-blue
 	background-color: #006dcc;
 	background-image: -moz-linear-gradient(top, #3898ff, #003c7c);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3898ff), to(#003c7c));
 	background-image: -webkit-linear-gradient(top, #3898ff, #003c7c);
 	background-image: -o-linear-gradient(top, #3898ff, #003c7c);
 	background-image: linear-gradient(to bottom, #3898ff, #003c7c);
 	background-repeat: repeat-x;
 	border: 3px solid #2a6199
+.home-banner .btn-yellow
+	background-color: #fde030;
+	background-image: -moz-linear-gradient(top, #fde030, #886804);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fde030), to(#886804));
+	background-image: -webkit-linear-gradient(top, #fde030, #886804);
+	background-image: -o-linear-gradient(top, #fde030, #886804);
+	background-image: linear-gradient(to bottom, #fde030, #886804);
+	background-repeat: repeat-x;
+	border: 3px solid #a0944d
 
 .page-banner
 	font-weight: 700

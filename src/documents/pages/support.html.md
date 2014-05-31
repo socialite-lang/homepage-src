@@ -12,4 +12,6 @@ Get help using SociaLite on our Google Groups:
 
 ### <b>Issues</b>
 
-Issue tracker information will be available soon!
+File a bug in the following issue tracker:
+* [GitHub Issue Tracker](https://github.com/socialite-lang/socialite/issues)
+
