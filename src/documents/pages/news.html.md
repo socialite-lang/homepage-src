@@ -4,6 +4,23 @@ layout: page
 pageOrder: 0
 ```
 <div style="margin-top:-10pt"></div>
+
+### <b>2015</b>
+<div class="socialite-news-dates">April 2015</div>
+Finding anomalies in Medicare dataset with SociaLite, to be presented at Hadoop Summit (Brussels, Belgium)<br>
+
+### <b>2014</b>
+
+<div class="socialite-news-dates">June 2014</div>
+Distributed SociaLite presented at Hadoop Summit (San Jose, USA). <br>
+
+<div class="socialite-news-dates">May 2014</div>
+Distributed SociaLite presented at APAC PyCon (Taiwan). <br>
+Distributed SociaLite presented at Industry Technology Research Institute (ITRI) (Taiwan).
+
+<div class="socialite-news-dates">April 2014</div>
+Distributed SociaLite presented at PyCon (Montreal, Canada).
+
 ### <b>2013</b>
 
 <div class="socialite-news-dates">30 Nov 2013</div>

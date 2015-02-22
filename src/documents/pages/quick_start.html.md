@@ -8,12 +8,12 @@ pageOrder: 2
 
 SociaLite is a parallel/distributed query language. SociaLite queries are embedded in Java programs or Python (Jython) scripts, and compiled to parallel/distributed Java code. The easiest way to learn SociaLite is through the SociaLite interactive shell.
 
-### <b>Starting a SociaLite Shell (Single Machine)</b>
+### <b>Starting a SociaLite Shell</b>
 
 To start using the SociaLite interactive shell, first [install SociaLite](../install) and run ```bin/socialite```. To run a script, pass the script name such as ```bin/socialite script-name.py```.
-The SociaLite interactive shell is basically a Jython shell extended to support SociaLite queries. 
-Normally the shell expects Python code, and SociaLite queries are enclosed in backtik(`), like following.
-Click the <b>>>></b> on the top-right to hide the prompts.
+The SociaLite interactive shell is a Jython shell extended to support SociaLite queries. 
+Normally the shell expects Python code, and SociaLite queries are enclosed in backtick(`), like following.
+Click <b>>>></b> on the top-right to hide the prompts.
 
 ``` python
 >>> print "Python code"
@@ -62,7 +62,7 @@ To iterate elements over a table, you can simply do following
 ...     print i,j,f
 ```
 
-Tables are logically partitioned with respect to its first column. That is, tables are horizontally partitioned, and the value of the first column of a tuple determines in which partition the tuple is stored.  Because of the partitioning, iteration of a sorted table may not yield tuples in the sorted order.
+Tables are partitioned, or sharded, by its first column. That is, tables are horizontally partitioned, and the value of the first column of a tuple determines in which partition the tuple is stored. When running on a distributed cluster, the partitions (shards) are stored across the distributed machines.
 
 ### <b>Rules</b>
 
@@ -142,8 +142,8 @@ Here we list a few of them; for a complete list, please see [Documentation](../d
 <th class="span3">Function </th> <th class="span4">Description </th>
 </tr> </thead>
 <tbody>
-<tr><td>$read("path-to-file")</td>
-    <td>returns lines in a given file. e.g. l=$read("./a.txt") </td></tr>
+<tr><td>$read("file://path-to-file")</td>
+    <td>returns lines in a given file. e.g. l=$read("file://a.txt") or l=$read("hdfs://graph.txt") </td></tr>
 <tr><td>$split("src-str", "delim"[, maxsplit])</td>
     <td>returns the splitted string. e.g. (a,b,c)=$split(line, ";") </td></tr>
 <tr><td>$splitIter("src-str", "delim")</td>
@@ -160,63 +160,19 @@ For example, to read comma-separated values in a text file, you can write as fol
 
 ```python
 >>> `Values(int a, int b).`
->>> `Values(a,b) :- l=read("path/to/file.txt"), (v1,v2)=$split(l), a=$toInt(v1), b=$toInt(v2).`
+>>> `Values(a,b) :- l=read("file://path/to/file.txt"), (v1,v2)=$split(l), a=$toInt(v1), b=$toInt(v2).`
 ```
 
 ### <b>Starting a SociaLite Shell (Cluster)</b>
 
 The SociaLite programs can run on a cluster running SociaLite servers. Setting up a SociaLite cluster is described in [install SociaLite](../install). Once the cluster is set up, SociaLite shell can be executed with ```-d``` option to connect to the cluster, like ```bin/socialite -d```.  To run a script in the cluster, pass the script name like ```bin/socialite -d script-name.py```.
 
-### <a class="anchor" name="dist-tables"></a><b>Distributed Tables</b>
-
-SociaLite supports distributed tables whose partitions are stored across cluster machines.
-A distributed table can be declared using a location operator [] in its first column as in following.
-
-``` python
->>> `Foo[int i:0..100](double d).
->>>  Bar[int a]((int b)).
->>>  Qux[String s](int b).`
-```
-
-A distributed table stores tuples in one of its partitions -- the values of the partitioning column (first column) of the tuples determine which partition the tuples are stored in.
+You can run the same script on a single machine or on a distributed cluster. When running on a cluster, SociaLite tables are sharded by its first column and stored across the distributed tables.
 
 **Range-based partitioning**
-If a range operator is applied as in Foo table above, then tuples having first column values within a certain range are stored in a same partition.  For example, for the Foo table, if there are two machines in the cluster, tuples with values from 0 to 50 in the first column are stored in one machine, and the rest tuples are stored in another machine.
+If a range operator is applied e.g. ```Foo(int a:0..100, String s).```, then tuples having first column values within a certain range are stored in a same partition.  For example, for the Foo table, if there are two machines in the cluster, tuples with values from 0 to 50 in the first column are stored in one machine, and the rest tuples are stored in another machine.
 
 **Hash-based partitioning**
-If the location operator is used without the range operator -- as in Bar and Qux table above -- we apply hash-based partitioning where the hash of the first column value is used to determine the location to store a given tuple.
-
-As opposed to distributed tables, tables that are declared without the location operator are machine-local tables (or simply local tables). Unlike distributed tables whose partitions are stored across cluster machines, partitions of local tables are entirely stored in individual machine. In other words, distributed tables have a single instance that is stored across cluster machines, and local tables have multiple instances -- one per each machine. Local tables are only accessed from the machine the tables are stored -- more details are explained in [Distributed Rules](#dist-rules).
-
-
-### <a class="anchor" name="dist-rules"></a><b>Distributed Rules</b>
-
-Rules that are accessing one or more distributed tables are distributed rules. An example of a distributed is shown in following.
-
-```python
->>> `Friend[String i]((String f)).
->>>  Foaf[String i]((String ff)).`
->>> 
->>> `Foaf[i](ff) :- Friend[i](f), Friend[f](ff).`
-```
-
-We declare two distributed tables (with nested second columns) and we compute friends-of-friends with the distributed tables. The rule requires distributed join operation; in the rule body, the two terms -- *Friend[i](f)* and *Friend[f](ff)* -- have different values in the partitioning column -- *i* and *f*. Hence tuples from the first term might need to be sent to other machines for the join operation. That is, tuple {i,f} stored in one machine (determined by *i*) needs to be transfered to another machine, where tuple {f, ff} is stored. Then the result tuple {i, ff} needs to be transfered back to be stored to Foaf.
-
-Users may want to re-order the terms in the rule body to minimize data communication for better performance. For example, in the following example, <i>Rule 1</i> has more communication than <i>Rule 2</i>.
-
-```python
->>> `TriangleCount[int i:0..0](int cnt).`
->>> 
->>> # Rule 1
->>> `TriangleCount[0]($inc(1)) :- Friend[x](y), Friend[y](z), Friend[x](z).` 
->>> 
->>> # Rule 2
->>> `TriangleCount[0]($inc(1)) :- Friend[x](y), Friend[x](z), Friend[y](z).`
-```
-** Built-in Functions for HDFS **
-
-SociaLite supports reading data from HDFS with the following built-in functions.
-
-    $hdfsRead("path-to-file"): reads the file from HDFS in parallel and returns lines, e.g. l=$hdfsRead("data.txt")
+If the location operator is used without the range operator, we apply hash-based partitioning where the hash of the first column value is used to determine the location to store a given tuple.
 
 <i>More documentation is coming soon! </i>

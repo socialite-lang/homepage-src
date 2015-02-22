@@ -1,5 +1,5 @@
 ```
-title: Support 
+title: Community
 layout: page
 pageOrder: 4
 ```

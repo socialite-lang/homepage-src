@@ -25,6 +25,8 @@ $(document).ready(function() {
             $jthis.prepend($button);
             $button.show();
 
+            $jthis.attr("title", "Click >>> on the top-right to hide prompts");
+
             $output = $jthis.find('.hljs-string').filter(function() {
                                 return this.innerHTML.indexOf("'''")==0;});
             $output.each(function(index) {
@@ -33,7 +35,6 @@ $(document).ready(function() {
                 $jthis.html(txt.substring(3, txt.length-3));
                 $jthis.addClass('hljs-output');
                 $jthis.removeClass('hljs-string');
-                //$jthis.toogleClass('hljs-string');
             });
         }
     });
@@ -41,7 +42,7 @@ $(document).ready(function() {
     $('.copybutton').click(
             function() {
                 var $button = $(this);
-                if ($button.css('text-decoration')=='line-through') {
+                if ($button.hasClass('prompt-hidden')) {
                     $button.parent().find('.hljs-prompt').show();
                     $button.parent().find('.hljs-output').show();
                     $button.css('text-decoration', 'none');
@@ -52,6 +53,7 @@ $(document).ready(function() {
                     $button.css('text-decoration', 'line-through');
                     $button.attr('title', show_text);
                 }
+                $button.toggleClass('prompt-hidden');
             });
 });
 

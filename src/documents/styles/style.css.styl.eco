@@ -199,3 +199,15 @@ a.anchor
 	position: relative; 
 	top: -70px; 
 	visibility: hidden;
+
+pre.highlight
+	overflow: auto;
+	max-height: 600px;
+
+
+pre.highlight.chart
+	width: 760px;
+
+pre.highlight.chart img
+	width: 720px;
+
