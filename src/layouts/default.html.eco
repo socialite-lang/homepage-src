@@ -80,10 +80,10 @@
             <div class="home-banner">
 	            <h1>Socia<i>Lite</i></h1>
 	            <h2>
-	                Python-integrated query language for big data analysis 
+	                Declarative query language for large-scale graph analysis 
 	            </h2>
 	            <h3>
-	                With its novel compiler optimizations, SociaLite makes large-scale graph/data analysis faster than ever!
+	                With its novel compiler optimizations, SociaLite makes large-scale graph analysis faster than ever!
 	            </h3>
 
 	            <div class="container">
