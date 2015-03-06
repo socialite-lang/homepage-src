@@ -80,7 +80,7 @@
             <div class="home-banner">
 	            <h1>Socia<i>Lite</i></h1>
 	            <h2>
-	                Declarative query language for large-scale graph analysis 
+	                Query language for large-scale graph analysis 
 	            </h2>
 	            <h3>
 	                With its novel compiler optimizations, SociaLite makes large-scale graph analysis faster than ever!
