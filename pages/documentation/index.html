@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!-- -->
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+		 More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<!-- Our site title and description -->
+	<title>Documentation | SociaLite</title>
+	<meta name="description" content="SociaLite, distributed query language for large-scale data analysis." />
+	<meta name="keywords" content="data, graph, analysis, distributed, parallel, query, language" />
+	<meta name="author" content="SociaLite-Lang" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.78.6" />
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+	<link rel="shortcut icon" href="http://socialite-lang.github.io/images/icons/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<!--<link  rel="stylesheet" href="/styles/twitter-bootstrap.css" /><link  rel="stylesheet" href="/styles/style.css" /><link  rel="stylesheet" href="/styles/googlecode.css" />-->
+	<link  rel="stylesheet" href="http://socialite-lang.github.io/styles/twitter-bootstrap.css" /><link  rel="stylesheet" href="http://socialite-lang.github.io/styles/style.css" /><link  rel="stylesheet" href="http://socialite-lang.github.io/styles/googlecode.css" />
+</head>
+<body>
+	<!-- Menu -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://socialite-lang.github.io/">SociaLite</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/news"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/news" property="dc:title">
+								News
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/install"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/install" property="dc:title">
+								Install
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/quick_start"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/quick_start" property="dc:title">
+								Quick Start
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/documentation"
+							class="active"
+						>
+							<a href="http://socialite-lang.github.io/pages/documentation" property="dc:title">
+								Documentation
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/community"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/community" property="dc:title">
+								Community
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/about"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/about" property="dc:title">
+								About
+							</a>
+						</li>
+					
+				</ul>
+			</div><!--/.navbar-collapse -->
+
+			
+		</div>
+	</div>
+
+	<!-- Content -->
+	
+	
+        <div class="page-banner">
+            <div class="container">
+                <div class="page-content">Documentation</div>
+            </div></div>
+        
+
+	<div class="container">
+		<!-- Content -->
+		<section id="content" class="content">
+			<br>
+
+<article id="page" class="page">
+	<div class="page-content"><p>SociaLite is a distributed query language for graph analysis and data mining.
+This document describes the syntax and core semantics of SociaLite. 
+For an informal introduction to SociaLite, see <a href="../quick_start">quick start</a>.</p>
+<p><i> The documentation is not complete yet; we will soon have a complete documentation.</i></p>
+<h3 id="-b-table-of-contents-b-"><b> Table of Contents</b></h3>
+<ul>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#basics">Basics</a><ul>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#rules">Rules</a></li>
+<li><a href="#functions">Functions</a></li>
+</ul>
+</li>
+<li><a href="#integr">Python Integration</a></li>
+<li><a href="#examples">Example Programs</a></li>
+</ul>
+<hr>
+<h2 id="-a-class-anchor-name-intro-a-b-introduction-b-"><a class="anchor" name="intro"></a> <b>Introduction</b></h2>
+<p>SociaLite is based on <a href="http://en.wikipedia.org/wiki/Datalog#cite_note-1">Datalog</a>, 
+hence it supports <a href="http://en.wikipedia.org/wiki/Declarative_programming">declarative programming</a>.
+SociaLite programmers <i>declare</i> distributed in-memory tables; then, SociaLite rules are <i>declared</i> to access the tables, and perform relational operations. The rules can be evaluated in parallel on a single multi-core machine or on a cluster of distributed machines.
+<br>Aggregation is supported in SociaLite; common aggregate operations such as <i>min</i>, <i>max</i>, and <i>sum</i> are provided as a built-in function, and user-defined functions are also supported.
+<br>SociaLite queries can be embedded in Python programs. The embedded queries are executed against an implicitly declared SociaLite database that stores the declared tables and rules.</p>
+<h2 id="-a-class-anchor-name-basics-a-b-basics-b-"><a class="anchor" name="basics"></a> <b>Basics</b></h2>
+<p>Tables and rules are the basic programming concepts in SociaLite.</p>
+<h3 id="-a-class-anchor-name-tables-a-b-tables-b-"><a class="anchor" name="tables"></a> <b>Tables</b></h3>
+<p>Tables are the primary data structure in SociaLite that stores user data. Tables are stored in memory, possibly distributed across cluster machines. </p>
+<p>A SociaLite table is declared with the following syntax:</p>
+<pre class="highlight"><code class="hljs r">Table(type col1, <span class="hljs-keyword">...</span> , (type coli, <span class="hljs-keyword">...</span>)) opts.
+</code></pre><p>The <i>type</i> denotes the type of the declared column, which can be either primitive types (int, long, float, and double) or object types (String and user-defined types).
+The parenthesis indicates that the enclosed columns are nested. For example, the following declaration represents a two-column table with the second column nested, representing an adjacency list.</p>
+<pre class="highlight"><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">Edge</span><span class="hljs-params">(int src, (int target)</span></span>).
+</code></pre><p>A range operator, specifying that the value of the column is within the given range, can be applied to the first column of a table or to the first column of nested tables. The following example shows a range operator applied to the Edge table.</p>
+<pre class="highlight"><code class="hljs groovy">Edge(<span class="hljs-typename">int</span> <span class="hljs-string">src:</span><span class="hljs-number">0.</span><span class="hljs-number">.1000</span>, (<span class="hljs-typename">int</span> target)).
+</code></pre><p>The first column of the Edge table should be within the given range -- that is, between 0 and 1000. 
+Moreover, if the range operator is used, SociaLite compiler optimizes the column to be represented by array indices; 
+so the memory footprint of Edge table is smaller, and lookup by the first column value is much faster.</p>
+<p>SociaLite tables are horizontally partitioned, or <i>sharded</i>, by its first column and stored across distributed machines when running on a distributed cluster. When running on a single machine, the partitions of a table can be processed by different cores at the same time for parallel processing.</p>
+<p>By default <em>hash-based partitioning</em> is used; the hash of the first column value determines the partition to store the tuples. If a range operator is in the table declaration, then <em>range-based partitioning</em> is used, where
+the range is divided up into consecutive subranges and evenly distributed across the partitions.</p>
+<h4 id="-a-class-anchor-name-table-opts-a-b-table-options-b-"><a class="anchor" name="table-opts"></a> <b>Table Options</b></h4>
+<p>Following describes the table options that can be used in table declarations</p>
+<table class="table-striped table-bordered table-condensed" width="720" style="margin-left:20px">
+<thead> <tr>
+<th class="span3">Option </th> <th class="span4">Description </th>
+</tr> </thead>
+<tbody>
+<tr><td>indexby</td>
+    <td>adds index to the given column. e.g. Edge(int src, (int target)) indexby src. </td></tr>
+<tr><td>sortby</td>
+    <td>sorts the table by the given column. e.g. Edge(int src, (int target)) sortby target. </td></tr>
+<tr><td>multiset</td>
+    <td>specifies that the table is multiset. 
+        This option makes insertion faster because 
+        it is not necessary to check if the inserted tuple already exists in the table.
+        e.g. Edge(int s, (int t)) multiset. </td></tr>
+</tbody>
+</table>
+
+
+<h3 id="-a-class-anchor-name-rules-a-b-rules-b-"><a class="anchor" name="rules"></a> <b>Rules</b></h3>
+<p>In SociaLite, programming logic is expressed in rules.
+SociaLite rules are declarative just like SQL queries.</p>
+<p>A SociaLite rule is declared as following.</p>
+<pre class="highlight"><code class="hljs r">Head(p_1, p_2, <span class="hljs-keyword">...</span>, p_N) :- Body1(a_1, a_2, ..), Body2(b_1, b_2, <span class="hljs-keyword">...</span>), <span class="hljs-keyword">...</span> BodyN(x_1, x_2, <span class="hljs-keyword">...</span>).
+</code></pre><p>The left side of column-dash is rule head, and the right side is rule body. In short, the above rule processes (joins) the tables in the body -- Body1, Body2, ..., BodyN -- and inserts the result into the Head table in the rule head.</p>
+<p>The following is an example SociaLite rule that finds friends-of-friends:</p>
+<pre class="highlight"><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">Foaf</span><span class="hljs-params">(i, ff)</span></span> :- <span class="hljs-function"><span class="hljs-title">Friend</span><span class="hljs-params">(i, f)</span></span>, <span class="hljs-function"><span class="hljs-title">Friend</span><span class="hljs-params">(f, ff)</span></span>.
+</code></pre><p>Assume that Friend table stores the friendship relation.
+In the body of the above rule, the Friend table is joined with itself, where the variable f indicates the join key, 
+and appears as the second column in the left side of the join, and the first column in the right side of the join. 
+In the head, the join result is stored in the Foaf table.</p>
+<p>In other words, the query is evaluated as follows. For each tuple (i, f) in Friend (the first table in the body), we find matching tuples (f, ff) in Friend (second table in the body), whose first column matches with the second column of (i, f). After the matching, we store the result (i, ff) into Foaf table.</p>
+<h3 id="-a-class-anchor-name-functions-a-b-functions-b-"><a class="anchor" name="functions"></a> <b>Functions</b></h3>
+<p>SociaLite allows Java and Python (Jython) functions to be used in SociaLite rules. The functions are prefixed with dollar sign as in the following example:</p>
+<pre class="highlight"><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">Edge</span><span class="hljs-params">(s, t)</span></span> :- l=<span class="hljs-variable">$read</span>(<span class="hljs-string">"hdfs://data/graph.txt"</span>), (<span class="hljs-tag">a</span>,b)=<span class="hljs-variable">$split</span>(l, <span class="hljs-string">","</span>), s=<span class="hljs-variable">$toInt</span>(a), t=<span class="hljs-variable">$toInt</span>(b).
+</code></pre><p>The above rule uses three built-in functions: $read, $split, and $toInt. The $read function reads from the given file and yields lines in the file. The $split function splits the given parameter with the second parameter as the delimiter. The function $toInt converts the string argument to int type. These built-in functions are defined in <a href="https://github.com/socialite-lang/socialite/blob/master/src/socialite/functions/Builtin.java">Builtin.java</a>.</p>
+<p>User-defined functions are allowed in Java and Python. In Java, define a static method of a class in package <code>socialite.functions</code> and in SociaLite rule use $class_name.method_name to access the method. Example functions can be found in <a href="https://github.com/socialite-lang/socialite/blob/master/src/socialite/functions/Builtin.java">Builtin.java</a>.
+In Python define a function, and use @returns(return-type) annotation to specify the return type, as following example:</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-decorator">@returns(int)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">primeBiggerThan</span><span class="hljs-params">(a)</span>:</span>
+  <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    <span class="hljs-keyword">if</span> isPrime(a): <span class="hljs-keyword">return</span> a
+    <span class="hljs-keyword">else</span>: a+=<span class="hljs-number">1</span>
+</code></pre><h2 id="-a-class-anchor-name-integr-a-b-python-integration-b-"><a class="anchor" name="integr"></a> <b>Python Integration</b></h2>
+<p>We extended Python (Jython) interpreter so that SociaLite queries can be embedded within Python code.
+The extended interpreter (bin/socialite in the SociaLite distribution) preprocesses SociaLite queries into a function call (to SociaLite compiler). SociaLite queries are quoted with backtick(`) as in the following example:</p>
+<pre class="highlight"><code class="hljs stylus">print <span class="hljs-string">"this is Python code"</span>
+
+`<span class="hljs-function"><span class="hljs-title">Edge</span><span class="hljs-params">(s, t)</span></span> :- l=<span class="hljs-variable">$read</span>(<span class="hljs-string">"hdfs://data/graph.txt"</span>), (<span class="hljs-tag">a</span>,b)=<span class="hljs-variable">$split</span>(l, <span class="hljs-string">","</span>), s=<span class="hljs-variable">$toInt</span>(a), t=<span class="hljs-variable">$toInt</span>(b).`
+
+<span class="hljs-keyword">for</span> s,t <span class="hljs-keyword">in</span> `<span class="hljs-function"><span class="hljs-title">Edge</span><span class="hljs-params">(s,t)</span></span>`:
+    print s,t
+</code></pre><p>Python functions and variables can be accessed within SociaLite code; a dollar prefix indicates that the variable or function is externally defined as following:</p>
+<pre class="highlight"><code class="hljs coffeescript">N = <span class="hljs-number">1000</span>
+`<span class="javascript">Edge(int s:<span class="hljs-number">0.</span>.$N, (int t)).</span>`
+
+src = <span class="hljs-number">10</span>
+<span class="hljs-comment"># prints edges of node 10</span>
+<span class="hljs-keyword">for</span> _, t <span class="hljs-keyword">in</span> `<span class="javascript">Edge($src, t)</span>`: 
+    <span class="hljs-built_in">print</span> <span class="hljs-string">"10 --&gt;"</span>,t
+</code></pre><h2 id="-a-class-anchor-name-examples-a-b-example-programs-b-"><a class="anchor" name="examples"></a> <b>Example Programs</b></h2>
+<h3 id="analysis-of-dblp-co-authorship-graph">Analysis of DBLP co-authorship graph</h3>
+<p>Example code: <a href="https://github.com/socialite-lang/cs243">https://github.com/socialite-lang/cs243</a></p>
+<p>The program (code/sp.py and code/pr.py) uses shortest-paths and PageRank algorithm to analyze the DBLP co-authorship graph.</p>
+<h3 id="analysis-of-medicare-b-dataset">Analysis of Medicare-B Dataset</h3>
+<p>Example code: <a href="https://github.com/ofermend/medicare-demo">https://github.com/ofermend/medicare-demo</a></p>
+<p>The program (code/find-anomalies.py) uses personalized PageRank to find anomalies in the Medicare dataset.
+More details are decribed in the blog post.</p>
+</div>
+</article>
+		</section>
+
+		<!-- Footer -->
+		<!-- <footer>
+			<p class="pull-left">&copy; Company 2016</p>
+			<p class="pull-right">
+				This website was last updated at 2016-07-19T06:34:46.052Z
+			</p>
+		</footer>  -->
+		<footer>
+		<br>
+		<br>
+		<br>
+		</footer>
+	</div><!-- /container -->
+
+	<!-- Scripts -->
+	<!--<script defer="defer"  src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script defer="defer"  src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script><script defer="defer"  src="/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"></script><script defer="defer"  src="/scripts/script.js"></script><script defer="defer"  src="/scripts/copybutton.js"></script> -->
+	<script defer="defer"  src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script defer="defer"  src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script><script defer="defer"  src="http://socialite-lang.github.io/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"></script><script defer="defer"  src="http://socialite-lang.github.io/scripts/script.js"></script><script defer="defer"  src="http://socialite-lang.github.io/scripts/copybutton.js"></script>
+</body>
+</html>

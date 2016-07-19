@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!-- -->
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+		 More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<!-- Our site title and description -->
+	<title>Compare | SociaLite</title>
+	<meta name="description" content="SociaLite, distributed query language for large-scale data analysis." />
+	<meta name="keywords" content="data, graph, analysis, distributed, parallel, query, language" />
+	<meta name="author" content="SociaLite-Lang" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.78.6" />
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+	<link rel="shortcut icon" href="http://socialite-lang.github.io/images/icons/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<!--<link  rel="stylesheet" href="/styles/twitter-bootstrap.css" /><link  rel="stylesheet" href="/styles/style.css" /><link  rel="stylesheet" href="/styles/googlecode.css" />-->
+	<link  rel="stylesheet" href="http://socialite-lang.github.io/styles/twitter-bootstrap.css" /><link  rel="stylesheet" href="http://socialite-lang.github.io/styles/style.css" /><link  rel="stylesheet" href="http://socialite-lang.github.io/styles/googlecode.css" />
+</head>
+<body>
+	<!-- Menu -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://socialite-lang.github.io/">SociaLite</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/news"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/news" property="dc:title">
+								News
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/install"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/install" property="dc:title">
+								Install
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/quick_start"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/quick_start" property="dc:title">
+								Quick Start
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/documentation"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/documentation" property="dc:title">
+								Documentation
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/community"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/community" property="dc:title">
+								Community
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/about"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/about" property="dc:title">
+								About
+							</a>
+						</li>
+					
+				</ul>
+			</div><!--/.navbar-collapse -->
+
+			
+		</div>
+	</div>
+
+	<!-- Content -->
+	
+	
+        <div class="page-banner">
+            <div class="container">
+                <div class="page-content">Compare</div>
+            </div></div>
+        
+
+	<div class="container">
+		<!-- Content -->
+		<section id="content" class="content">
+			<br>
+
+<article id="page" class="page">
+	<div class="page-content"><p><br></p>
+<p>The high-level query interface in SociaLite is much easier than the programming interfaces in other state-of-the-art graph/data analysis frameworks. This high-level semantics of SociaLite does not incur any performance penalty; the analysis programs in SociaLite are as fast as, or faster than the equivalent programs in other analysis frameworks. Here, we compare SociaLite with other data/graph analysis frameworks in terms of performance and programmability.</p>
+<h3 id="-b-performance-b-"><b>Performance</b></h3>
+<p>Recently, Intel parallel research lab published a paper in SIGMOD&#39;14, which compares distributed graph analysis frameworks. The paper compares four frameworks -- Combinatorial BLAS, GraphLab, SociaLite, and Giraph -- as well as native implementations with optimal performance.
+Four benchmark algorithms are used, including PageRank and Collaborative Filtering. 
+The following chart shows the execution times of the frameworks on 1 to 64 machines.</p>
+<pre class="highlight chart"> <img src="http://socialite-lang.github.io/images/compare-chart.jpg"> </pre>
+
+<p>The native implementations with algorithm-specific optimizations are the fastest. For Triangle benchmark, SociaLite is almost as fast as the native implementation. For the rest benchmark algorithms, SociaLite is slightly faster than GraphLab but slower than Combinatorial BLAS. For Collaborative Filtering, Combinatorial BLAS is somewhat faster than SociaLite, and for BFS and PageRank Combinatorial BLAS is significantly faster than SociaLite. For BFS and PageRank, Combinatorial BLAS provides natively implemented versions with internal optimizations. For Collaborative Filtering, the programming interface in Combinatorial BLAS is used to implement the algorithm, so the performance difference against SociaLite is smaller.</p>
+<p>Overall, the chart shows that SociaLite has very competitive performance compared to existing frameworks.</p>
+<h3 id="-b-programmability-b-"><b>Programmability</b></h3>
+<p>Vertex-centric programming model is used by most large-scale graph analysis frameworks and some of data mining (machine learning) frameworks. In vertex-centric programming model, input data is mapped to a graph structure with vertices and edges, and analysis logic is implemented as multiple iterations of vertex-centric computation. Programmers are required to implement the vertex-centric computation, which processes messages sent from a previous iteration, updates the vertex data, and send messages to other vertices if necessary. This vertex computation is very low-level, and it often requires a lot of effort to break down the analysis logic into vertex-centric computation.</p>
+<p>SociaLite provides high-level query interface for graph/data analysis. In SociaLite, data is stored in distributed tables. The structure of the tables can be easily controlled with high-level annotations; for example, adding index can be simply done with the <code>indexby</code> option. The data stored in the tables are processed with queries; users can apply relational operations as well as imperative logic implemented in Java or Python. Recursion is supported to express core graph algorithms such as shortest-paths algorithm.</p>
+<p>Here we use k-means clustering algorithm to compare SociaLite with other graph frameworks adapting vertex-centric programming model. K-means algorithm is a data mining algorithm, which clusters data points into <i>K</i> separate groups. In k-means algorithm, data points are first randomly assigned to groups. At each iteration, the center of each cluster is computed by averaging the data points in the cluster; then each data point is re-assigned to a cluster whose center is closest. This is repeated until there is no changes to the group assignment.</p>
+<p>In SociaLite, k-means clustering is implemented as following</p>
+<pre class="highlight"><code class="hljs python">N=<span class="hljs-number">1000000</span> <span class="hljs-comment"># num of data</span>
+K=<span class="hljs-number">1000</span>    <span class="hljs-comment"># num of clusters</span>
+X=<span class="hljs-number">2</span>      <span class="hljs-comment"># dimension of data</span>
+`Data[int id:<span class="hljs-number">0.</span>.$N](double[] p).
+ Center[int k:<span class="hljs-number">0.</span>.$K](int i:iter, Avg[] center).
+ Cluster[int id:<span class="hljs-number">0.</span>.$N](int i:iter, ArgMin am) groupby(<span class="hljs-number">2</span>).
+ Diff[int i:<span class="hljs-number">0.</span><span class="hljs-number">.0</span>](int diff) groupby(<span class="hljs-number">1</span>).`
+
+<span class="hljs-decorator">@returns(double)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getDiff</span><span class="hljs-params">(p, a)</span>:</span>
+    <span class="hljs-keyword">return</span> reduce(<span class="hljs-keyword">lambda</span> x,y:x+y, map(<span class="hljs-keyword">lambda</span> _p, _a: (_p-_a.value)**<span class="hljs-number">2</span>, p,a)    
+<span class="hljs-decorator">@returns(double, double)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">randInit</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">import</span> random <span class="hljs-keyword">as</span> r
+    <span class="hljs-keyword">return</span> (r.random(), r.random())
+<span class="hljs-comment"># initialization</span>
+`Center[cid](<span class="hljs-number">0</span>, $avg(p)) :- cid=$range(<span class="hljs-number">0</span>, $K), (x,y)=$randInit(), p=$darray(x,y).`
+`Cluster[id](<span class="hljs-number">0</span>, $argmin(idx, d)) :- Data[id](p), Center[idx](<span class="hljs-number">0</span>, a), d=$getDiff(p, a).`
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">100</span>):
+    `Center[cid]($i+<span class="hljs-number">1</span>, $avg(p)) :- Data[id](p), Cluster[id]($i, c), cid=c.value.`
+    `Cluster[id]($i+<span class="hljs-number">1</span>, $argmin(idx, d)) :- Data[id](p), Center[idx]($i+<span class="hljs-number">1</span>, a), d=$getDiff(p, a).`
+    <span class="hljs-comment"># convergence test</span>
+    `Diff[<span class="hljs-number">0</span>]($choice(d)) :- Cluster[id]($i, c1), Cluster[id]($i+<span class="hljs-number">1</span>, c2), c1!=c2, d=<span class="hljs-number">1.</span>`    
+    <span class="hljs-keyword">if</span> len(list(`Diff[<span class="hljs-number">0</span>](d)`))==<span class="hljs-number">0</span>: <span class="hljs-keyword">break</span>
+</code></pre>
+<p>The same algorithm in vertex-centric programming model is implemented as following. The code is for GraphLab (distributed data mining framework), but it is essentially same in other frameworks such as Giraph. Please use the scroll bar to view the entire code, since it is nearly 1000 lines.</p>
+<pre class="highlight"><code class="hljs c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;boost/config/warning_disable.hpp&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;boost/spirit/<span class="hljs-keyword">include</span>/qi.hpp&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;boost/spirit/<span class="hljs-keyword">include</span>/phoenix_core.hpp&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;boost/spirit/<span class="hljs-keyword">include</span>/phoenix_operator.hpp&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;boost/spirit/<span class="hljs-keyword">include</span>/phoenix_stl.hpp&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;boost/tokenizer.hpp&gt;</span>
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;limits&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;vector&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;map&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdlib.h&gt;</span>
+
+<span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;graphlab.hpp&gt;</span>
+
+
+size_t NUM_CLUSTERS = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">bool</span> IS_SPARSE = <span class="hljs-keyword">false</span>;
+
+<span class="hljs-keyword">struct</span> cluster {
+  cluster(): count(<span class="hljs-number">0</span>), changed(<span class="hljs-keyword">false</span>) { }
+  std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span> center;
+  std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span> center_sparse;
+  size_t count;
+  <span class="hljs-keyword">bool</span> changed;
+
+  <span class="hljs-keyword">void</span> save(graphlab::oarchive&amp; oarc) <span class="hljs-keyword">const</span> {
+    oarc &lt;&lt; center &lt;&lt; count &lt;&lt; changed &lt;&lt; center_sparse;
+  }
+
+  <span class="hljs-keyword">void</span> load(graphlab::iarchive&amp; iarc) {
+    iarc &gt;&gt; center &gt;&gt; count &gt;&gt; changed &gt;&gt; center_sparse;
+  }
+};
+
+std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;cluster&gt;</span> CLUSTERS;
+
+<span class="hljs-comment">// the current cluster to initialize</span>
+size_t KMEANS_INITIALIZATION;
+
+<span class="hljs-keyword">struct</span> vertex_data{
+  std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span> point;
+  std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span> point_sparse;
+  size_t best_cluster;
+  <span class="hljs-keyword">double</span> best_distance;
+  <span class="hljs-keyword">bool</span> changed;
+
+  <span class="hljs-keyword">void</span> save(graphlab::oarchive&amp; oarc) <span class="hljs-keyword">const</span> {
+    oarc &lt;&lt; point &lt;&lt; best_cluster &lt;&lt; best_distance &lt;&lt; changed &lt;&lt; point_sparse;
+  }
+  <span class="hljs-keyword">void</span> load(graphlab::iarchive&amp; iarc) {
+    iarc &gt;&gt; point &gt;&gt; best_cluster &gt;&gt; best_distance &gt;&gt; changed &gt;&gt; point_sparse;
+  }
+};
+
+<span class="hljs-comment">//use edges when edge weight file is given</span>
+<span class="hljs-keyword">struct</span> edge_data {
+  <span class="hljs-keyword">double</span> weight;
+
+  edge_data() :
+      weight(<span class="hljs-number">0.0</span>) {
+  }
+  <span class="hljs-keyword">explicit</span> edge_data(<span class="hljs-keyword">double</span> w) :
+      weight(w) {
+  }
+
+  <span class="hljs-keyword">void</span> save(graphlab::oarchive&amp; oarc) <span class="hljs-keyword">const</span> {
+    oarc &lt;&lt; weight;
+  }
+  <span class="hljs-keyword">void</span> load(graphlab::iarchive&amp; iarc) {
+    iarc &gt;&gt; weight;
+  }
+};
+
+<span class="hljs-comment">// helper function to compute distance between points</span>
+<span class="hljs-keyword">double</span> sqr_distance(<span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span>&amp; a,
+                    <span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span>&amp; b) {
+  ASSERT_EQ(a.size(), b.size());
+  <span class="hljs-keyword">double</span> total = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; a.size(); ++i) {
+    <span class="hljs-keyword">double</span> d = a[i] - b[i];
+    total += d * d;
+  }
+  <span class="hljs-keyword">return</span> total;
+}
+
+<span class="hljs-keyword">double</span> sqr_distance(<span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; a,
+                    <span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; b) {
+  <span class="hljs-keyword">double</span> total = <span class="hljs-number">0.0</span>;
+  <span class="hljs-keyword">for</span>(std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>::const_iterator iter = a.begin();
+      iter != a.end(); ++iter){
+    size_t id = (*iter).first;
+    <span class="hljs-keyword">double</span> val = (*iter).second;
+    <span class="hljs-keyword">if</span>(b.find(id) != b.end()){
+      <span class="hljs-keyword">double</span> d = val - b.at(id);
+      total += d*d;
+    }<span class="hljs-keyword">else</span>{
+      total += val * val;
+    }
+  }
+  <span class="hljs-keyword">for</span>(std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>::const_iterator iter = b.begin();
+      iter != b.end(); ++iter){
+    <span class="hljs-keyword">double</span> val = (*iter).second;
+    <span class="hljs-keyword">if</span>(a.find((*iter).first) == a.end()){
+      total += val * val;
+    }
+  }
+
+  <span class="hljs-keyword">return</span> total;
+
+<span class="hljs-comment">////   cosine distance is better for sparse datapoints?</span>
+<span class="hljs-comment">//    double ip = 0.0;</span>
+<span class="hljs-comment">//    double lenA = 0.0;</span>
+<span class="hljs-comment">//    double lenB = 0.0;</span>
+<span class="hljs-comment">//    for(std::map&lt;size_t, double&gt;::const_iterator iter = a.begin();</span>
+<span class="hljs-comment">//        iter != a.end(); ++iter){</span>
+<span class="hljs-comment">//      size_t id = (*iter).first;</span>
+<span class="hljs-comment">//      double val = (*iter).second;</span>
+<span class="hljs-comment">//      if(b.find(id) != b.end()){</span>
+<span class="hljs-comment">//        ip += val * b.at(id);</span>
+<span class="hljs-comment">//      }</span>
+<span class="hljs-comment">//      lenA += val*val;</span>
+<span class="hljs-comment">//    }</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//    if(ip == 0.0 || lenA == 0.0)</span>
+<span class="hljs-comment">//      return 1.0;</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//    for(std::map&lt;size_t, double&gt;::const_iterator iter = b.begin();</span>
+<span class="hljs-comment">//        iter != b.end(); ++iter){</span>
+<span class="hljs-comment">//      double val = (*iter).second;</span>
+<span class="hljs-comment">//      lenB += val * val;</span>
+<span class="hljs-comment">//    }</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//    if(lenB == 1.0)</span>
+<span class="hljs-comment">//      return 1.0;</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//    return 1.0 - ip/(sqrt(lenA)*sqrt(lenB));</span>
+
+}
+
+
+<span class="hljs-comment">// helper function to add two vectors</span>
+std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span>&amp; plus_equal_vector(std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span>&amp; a,
+                                       <span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span>&amp; b) {
+  ASSERT_EQ(a.size(), b.size());
+  <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; a.size(); ++i) {
+    a[i] += b[i];
+  }
+  <span class="hljs-keyword">return</span> a;
+}
+
+<span class="hljs-comment">// helper function to add two vectors</span>
+std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; plus_equal_vector(std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; a,
+                                       <span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; b) {
+  <span class="hljs-keyword">for</span>(std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>::const_iterator iter = b.begin();
+    iter != b.end(); ++iter){
+    size_t id = (*iter).first;
+    <span class="hljs-keyword">double</span> val = (*iter).second;
+    <span class="hljs-keyword">if</span>(a.find(id) != a.end()){
+      a[id] += b.at(id);
+    }<span class="hljs-keyword">else</span>{
+      a.insert(std::make_pair(id, val));
+    }
+  }
+  <span class="hljs-keyword">return</span> a;
+}
+
+<span class="hljs-comment">// helper function to scale a vector vectors</span>
+std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span>&amp; scale_vector(std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span>&amp; a, <span class="hljs-keyword">double</span> d) {
+  <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; a.size(); ++i) {
+    a[i] *= d;
+  }
+  <span class="hljs-keyword">return</span> a;
+}
+
+<span class="hljs-comment">// helper function to scale a vector vectors</span>
+std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; scale_vector(std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; a, <span class="hljs-keyword">double</span> d) {
+  <span class="hljs-keyword">for</span>(std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>::iterator iter = a.begin();
+    iter != a.end(); ++iter){
+  size_t id = (*iter).first;
+  <span class="hljs-keyword">double</span> val = (*iter).second;
+  a[id] = val*d;
+<span class="hljs-comment">//    (*iter).second *= d;</span>
+  }
+  <span class="hljs-keyword">return</span> a;
+}
+
+
+<span class="hljs-keyword">typedef</span> graphlab::distributed_graph&lt;vertex_data, edge_data&gt; graph_type;
+
+graphlab::atomic&lt;graphlab::vertex_id_type&gt; NEXT_VID;
+
+<span class="hljs-comment">// Read a line from a file and creates a vertex</span>
+<span class="hljs-keyword">bool</span> vertex_loader(graph_type&amp; graph, <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; fname,
+                   <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; line) {
+  <span class="hljs-keyword">if</span> (line.empty()) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  <span class="hljs-keyword">namespace</span> qi = boost::spirit::qi;
+  <span class="hljs-keyword">namespace</span> ascii = boost::spirit::ascii;
+  <span class="hljs-keyword">namespace</span> phoenix = boost::phoenix;
+  vertex_data vtx;
+  <span class="hljs-keyword">const</span> <span class="hljs-keyword">bool</span> success = qi::phrase_parse
+    (line.begin(), line.end(),
+     <span class="hljs-comment">//  Begin grammar</span>
+     (
+      (qi::double_[phoenix::push_back(phoenix::ref(vtx.point), qi::_1)] % -qi::char_(<span class="hljs-string">","</span>) )
+      )
+     ,
+     <span class="hljs-comment">//  End grammar</span>
+     ascii::space);
+
+  <span class="hljs-keyword">if</span> (!success) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+  vtx.best_cluster = (size_t)(-<span class="hljs-number">1</span>);
+  vtx.best_distance = std::numeric_limits&lt;<span class="hljs-keyword">double</span>&gt;::infinity();
+  vtx.changed = <span class="hljs-keyword">false</span>;
+  graph.add_vertex(NEXT_VID.inc_ret_last(<span class="hljs-number">1</span>), vtx);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}
+
+<span class="hljs-comment">// Read a line from a file and creates a vertex</span>
+<span class="hljs-keyword">bool</span> vertex_loader_sparse(graph_type&amp; graph, <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; fname,
+                   <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; line) {
+  <span class="hljs-keyword">if</span> (line.empty()) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+
+  vertex_data vtx;
+  boost::char_separator&lt;<span class="hljs-keyword">char</span>&gt; sep(<span class="hljs-string">" "</span>);
+  boost::tokenizer&lt; boost::char_separator&lt;<span class="hljs-keyword">char</span>&gt; &gt; tokens(line, sep);
+  BOOST_FOREACH (<span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; t, tokens) {
+    std::string::size_type pos = t.find(<span class="hljs-string">":"</span>);
+    <span class="hljs-keyword">if</span>(pos &gt; <span class="hljs-number">0</span>){
+      size_t id = (size_t)std::atoi(t.substr(<span class="hljs-number">0</span>, pos).c_str());
+      <span class="hljs-keyword">double</span> val = std::atof(t.substr(pos+<span class="hljs-number">1</span>, t.length() - pos -<span class="hljs-number">1</span>).c_str());
+      vtx.point_sparse.insert(std::make_pair(id, val));
+    }
+  }
+  vtx.best_cluster = (size_t)(-<span class="hljs-number">1</span>);
+  vtx.best_distance = std::numeric_limits&lt;<span class="hljs-keyword">double</span>&gt;::infinity();
+  vtx.changed = <span class="hljs-keyword">false</span>;
+  graph.add_vertex(NEXT_VID.inc_ret_last(<span class="hljs-number">1</span>), vtx);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}
+
+<span class="hljs-comment">// Read a line from a file and creates a vertex</span>
+<span class="hljs-keyword">bool</span> vertex_loader_with_id(graph_type&amp; graph, <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; fname,
+                   <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; line) {
+  <span class="hljs-keyword">if</span> (line.empty()) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  size_t id = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">namespace</span> qi = boost::spirit::qi;
+  <span class="hljs-keyword">namespace</span> ascii = boost::spirit::ascii;
+  <span class="hljs-keyword">namespace</span> phoenix = boost::phoenix;
+  vertex_data vtx;
+  <span class="hljs-keyword">const</span> <span class="hljs-keyword">bool</span> success = qi::phrase_parse
+    (line.begin(), line.end(),
+     <span class="hljs-comment">//  Begin grammar</span>
+     (
+      qi::ulong_[phoenix::ref(id) = qi::_1] &gt;&gt; -qi::char_(<span class="hljs-string">","</span>) &gt;&gt;
+      (qi::double_[phoenix::push_back(phoenix::ref(vtx.point), qi::_1)] % -qi::char_(<span class="hljs-string">","</span>) )
+      )
+     ,
+     <span class="hljs-comment">//  End grammar</span>
+     ascii::space);
+
+  <span class="hljs-keyword">if</span> (!success) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+  vtx.best_cluster = (size_t)(-<span class="hljs-number">1</span>);
+  vtx.best_distance = std::numeric_limits&lt;<span class="hljs-keyword">double</span>&gt;::infinity();
+  vtx.changed = <span class="hljs-keyword">false</span>;
+  graph.add_vertex(id, vtx);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}
+
+<span class="hljs-comment">// Read a line from a file and creates a vertex</span>
+<span class="hljs-keyword">bool</span> vertex_loader_with_id_sparse(graph_type&amp; graph, <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; fname,
+                   <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; line) {
+  <span class="hljs-keyword">if</span> (line.empty()) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+
+  vertex_data vtx;
+  size_t id = <span class="hljs-number">0</span>;
+  boost::char_separator&lt;<span class="hljs-keyword">char</span>&gt; sep(<span class="hljs-string">" "</span>);
+  boost::tokenizer&lt;boost::char_separator&lt;<span class="hljs-keyword">char</span>&gt; &gt; tokens(line, sep);
+  <span class="hljs-keyword">bool</span> first = <span class="hljs-keyword">true</span>;
+  BOOST_FOREACH (<span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; t, tokens) {
+    <span class="hljs-keyword">if</span>(first){
+      id = (size_t)std::atoi(t.c_str());
+      first = <span class="hljs-keyword">false</span>;
+    }<span class="hljs-keyword">else</span>{
+      std::string::size_type pos = t.find(<span class="hljs-string">":"</span>);
+      <span class="hljs-keyword">if</span>(pos &gt; <span class="hljs-number">0</span>){
+        size_t id = (size_t)std::atoi(t.substr(<span class="hljs-number">0</span>, pos).c_str());
+        <span class="hljs-keyword">double</span> val = std::atof(t.substr(pos+<span class="hljs-number">1</span>, t.length() - pos -<span class="hljs-number">1</span>).c_str());
+        vtx.point_sparse.insert(std::make_pair(id, val));
+      }
+    }
+  }
+  vtx.best_cluster = (size_t)(-<span class="hljs-number">1</span>);
+  vtx.best_distance = std::numeric_limits&lt;<span class="hljs-keyword">double</span>&gt;::infinity();
+  vtx.changed = <span class="hljs-keyword">false</span>;
+  graph.add_vertex(id, vtx);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}
+
+
+
+<span class="hljs-comment">//call this when edge weight file is given.</span>
+<span class="hljs-comment">//each line should be [source id] [target id] [weight].</span>
+<span class="hljs-comment">//directions of edges are ignored.</span>
+<span class="hljs-keyword">bool</span> edge_loader(graph_type&amp; graph, <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; filename,
+    <span class="hljs-keyword">const</span> std::<span class="hljs-built_in">string</span>&amp; textline) {
+  <span class="hljs-keyword">if</span> (textline.empty())
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  std::<span class="hljs-built_in">stringstream</span> strm(textline);
+  size_t source_vid = <span class="hljs-number">0</span>;
+  size_t target_vid = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">double</span> weight = <span class="hljs-number">0.0</span>;
+  strm &gt;&gt; source_vid;
+  strm.ignore(<span class="hljs-number">1</span>);
+  strm &gt;&gt; target_vid;
+  strm.ignore(<span class="hljs-number">1</span>);
+  strm &gt;&gt; weight;
+  <span class="hljs-keyword">if</span>(source_vid != target_vid)
+    graph.add_edge(source_vid, target_vid, edge_data(weight));
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}
+
+
+<span class="hljs-comment">// A set of Map Reduces to compute the maximum and minimum vector sizes</span>
+<span class="hljs-comment">// to ensure that all vectors have the same length</span>
+<span class="hljs-keyword">struct</span> max_point_size_reducer: <span class="hljs-keyword">public</span> graphlab::IS_POD_TYPE {
+  size_t max_point_size;
+
+  <span class="hljs-keyword">static</span> max_point_size_reducer get_max_point_size(<span class="hljs-keyword">const</span> graph_type::vertex_type&amp; v) {
+    max_point_size_reducer r;
+    r.max_point_size = v.data().point.size();
+    <span class="hljs-keyword">return</span> r;
+  }
+
+  max_point_size_reducer&amp; <span class="hljs-keyword">operator</span>+=(<span class="hljs-keyword">const</span> max_point_size_reducer&amp; other) {
+    max_point_size = std::max(max_point_size, other.max_point_size);
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+  }
+};
+
+<span class="hljs-keyword">struct</span> min_point_size_reducer: <span class="hljs-keyword">public</span> graphlab::IS_POD_TYPE {
+  size_t min_point_size;
+
+  <span class="hljs-keyword">static</span> min_point_size_reducer get_min_point_size(<span class="hljs-keyword">const</span> graph_type::vertex_type&amp; v) {
+    min_point_size_reducer r;
+    r.min_point_size = v.data().point.size();
+    <span class="hljs-keyword">return</span> r;
+  }
+
+  min_point_size_reducer&amp; <span class="hljs-keyword">operator</span>+=(<span class="hljs-keyword">const</span> min_point_size_reducer&amp; other) {
+    min_point_size = std::min(min_point_size, other.min_point_size);
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+  }
+};
+
+
+<span class="hljs-comment">/*
+ * This transform vertices call is only used during
+ * the initialization phase. It computes distance to
+ * cluster[KMEANS_INITIALIZATION] and assigns itself
+ * to the new cluster KMEANS_INITIALIZATION if the new distance
+ * is smaller that its previous cluster assignment
+ */</span>
+<span class="hljs-keyword">void</span> kmeans_pp_initialization(graph_type::vertex_type&amp; v) {
+  <span class="hljs-keyword">double</span> d = sqr_distance(v.data().point,
+                          CLUSTERS[KMEANS_INITIALIZATION].center);
+  <span class="hljs-keyword">if</span> (v.data().best_distance &gt; d) {
+    v.data().best_distance = d;
+    v.data().best_cluster = KMEANS_INITIALIZATION;
+  }
+}
+
+<span class="hljs-keyword">void</span> kmeans_pp_initialization_sparse(graph_type::vertex_type&amp; v) {
+  <span class="hljs-keyword">double</span> d = sqr_distance(v.data().point_sparse,
+                          CLUSTERS[KMEANS_INITIALIZATION].center_sparse);
+  <span class="hljs-keyword">if</span> (v.data().best_distance &gt; d) {
+    v.data().best_distance = d;
+    v.data().best_cluster = KMEANS_INITIALIZATION;
+  }
+}
+
+
+<span class="hljs-comment">/*
+ * Draws a random sample from the data points that is 
+ * proportionate to the "best distance" stored in the vertex.
+ */</span>
+<span class="hljs-keyword">struct</span> random_sample_reducer {
+  std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span> vtx;
+  <span class="hljs-keyword">double</span> weight;
+
+  random_sample_reducer():weight(<span class="hljs-number">0</span>) { }
+  random_sample_reducer(<span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">double</span>&gt;</span>&amp; vtx,
+                        <span class="hljs-keyword">double</span> weight):vtx(vtx),weight(weight) { }
+
+  <span class="hljs-keyword">static</span> random_sample_reducer get_weight(<span class="hljs-keyword">const</span> graph_type::vertex_type&amp; v) {
+    <span class="hljs-keyword">if</span> (v.data().best_cluster == (size_t)(-<span class="hljs-number">1</span>)) {
+      <span class="hljs-keyword">return</span> random_sample_reducer(v.data().point, <span class="hljs-number">1</span>);
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> random_sample_reducer(v.data().point,
+                                   v.data().best_distance);
+    }
+  }
+
+  random_sample_reducer&amp; <span class="hljs-keyword">operator</span>+=(<span class="hljs-keyword">const</span> random_sample_reducer&amp; other) {
+    <span class="hljs-keyword">double</span> totalweight = weight + other.weight;
+    <span class="hljs-comment">// if any weight is too small, just quit</span>
+    <span class="hljs-keyword">if</span> (totalweight &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+
+    <span class="hljs-keyword">double</span> myp = weight / (weight + other.weight);
+    <span class="hljs-keyword">if</span> (graphlab::random::bernoulli(myp)) {
+      weight += other.weight;
+      <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }
+    <span class="hljs-keyword">else</span> {
+      vtx = other.vtx;
+      weight += other.weight;
+      <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }
+  }
+
+  <span class="hljs-keyword">void</span> save(graphlab::oarchive &amp;oarc) <span class="hljs-keyword">const</span> {
+    oarc &lt;&lt; vtx &lt;&lt; weight;
+  }
+
+  <span class="hljs-keyword">void</span> load(graphlab::iarchive&amp; iarc) {
+    iarc &gt;&gt; vtx &gt;&gt; weight;
+  }
+};
+
+<span class="hljs-keyword">struct</span> random_sample_reducer_sparse{
+  std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span> vtx;
+  <span class="hljs-keyword">double</span> weight;
+
+  random_sample_reducer_sparse():weight(<span class="hljs-number">0</span>) { }
+  random_sample_reducer_sparse(<span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; vtx,
+                        <span class="hljs-keyword">double</span> weight):vtx(vtx),weight(weight) { }
+
+  <span class="hljs-keyword">static</span> random_sample_reducer_sparse get_weight(<span class="hljs-keyword">const</span> graph_type::vertex_type&amp; v) {
+    <span class="hljs-keyword">if</span> (v.data().best_cluster == (size_t)(-<span class="hljs-number">1</span>)) {
+      <span class="hljs-keyword">return</span> random_sample_reducer_sparse(v.data().point_sparse, <span class="hljs-number">1</span>);
+    }
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> random_sample_reducer_sparse(v.data().point_sparse,
+                                   v.data().best_distance);
+    }
+  }
+
+  random_sample_reducer_sparse&amp; <span class="hljs-keyword">operator</span>+=(<span class="hljs-keyword">const</span> random_sample_reducer_sparse&amp; other) {
+    <span class="hljs-keyword">double</span> totalweight = weight + other.weight;
+    <span class="hljs-comment">// if any weight is too small, just quit</span>
+    <span class="hljs-keyword">if</span> (totalweight &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+
+    <span class="hljs-keyword">double</span> myp = weight / (weight + other.weight);
+    <span class="hljs-keyword">if</span> (graphlab::random::bernoulli(myp)) {
+      weight += other.weight;
+      <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }
+    <span class="hljs-keyword">else</span> {
+      vtx = other.vtx;
+      weight += other.weight;
+      <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+    }
+  }
+
+  <span class="hljs-keyword">void</span> save(graphlab::oarchive &amp;oarc) <span class="hljs-keyword">const</span> {
+    oarc &lt;&lt; vtx &lt;&lt; weight;
+  }
+
+  <span class="hljs-keyword">void</span> load(graphlab::iarchive&amp; iarc) {
+    iarc &gt;&gt; vtx &gt;&gt; weight;
+  }
+};
+
+
+<span class="hljs-comment">/*
+ * This transform vertices call is used during the 
+ * actual k-means iteration. It computes distance to 
+ * all "changed" clusters and reassigns itself if necessary
+ */</span>
+<span class="hljs-keyword">void</span> kmeans_iteration(graph_type::vertex_type&amp; v) {
+  <span class="hljs-comment">// if current vertex's cluster was modified, we invalidate the distance.</span>
+  <span class="hljs-comment">// and we need to recompute to all existing clusters</span>
+  <span class="hljs-comment">// otherwise, we just need to recompute to changed cluster centers.</span>
+  size_t prev_asg = v.data().best_cluster;
+  <span class="hljs-keyword">if</span> (CLUSTERS[v.data().best_cluster].changed) {
+    <span class="hljs-comment">// invalidate. recompute to all</span>
+    v.data().best_cluster = (size_t)(-<span class="hljs-number">1</span>);
+    v.data().best_distance = std::numeric_limits&lt;<span class="hljs-keyword">double</span>&gt;::infinity();
+    <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; NUM_CLUSTERS; ++i) {
+      <span class="hljs-keyword">if</span> (CLUSTERS[i].center.size() &gt; <span class="hljs-number">0</span> || CLUSTERS[i].center_sparse.size() &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">double</span> d = <span class="hljs-number">0.0</span>;
+        <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">true</span>)
+          d = sqr_distance(v.data().point_sparse, CLUSTERS[i].center_sparse);
+        <span class="hljs-keyword">else</span>
+          d = sqr_distance(v.data().point, CLUSTERS[i].center);
+        <span class="hljs-keyword">if</span> (d &lt; v.data().best_distance) {
+          v.data().best_distance = d;
+          v.data().best_cluster = i;
+        }
+      }
+    }
+  }
+  <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// just compute distance to what has changed</span>
+    <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; NUM_CLUSTERS; ++i) {
+      <span class="hljs-keyword">if</span> (CLUSTERS[i].changed &amp;&amp;
+          (CLUSTERS[i].center.size() &gt; <span class="hljs-number">0</span> || CLUSTERS[i].center_sparse.size() &gt; <span class="hljs-number">0</span>)) {
+        <span class="hljs-keyword">double</span> d = <span class="hljs-number">0.0</span>;
+        <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">true</span>)
+          d = sqr_distance(v.data().point_sparse, CLUSTERS[i].center_sparse);
+        <span class="hljs-keyword">else</span>
+          d= sqr_distance(v.data().point, CLUSTERS[i].center);
+        <span class="hljs-keyword">if</span> (d &lt; v.data().best_distance) {
+          v.data().best_distance = d;
+          v.data().best_cluster = i;
+        }
+      }
+    }
+  }
+  v.data().changed = (prev_asg != v.data().best_cluster);
+}
+
+<span class="hljs-comment">//gathered information</span>
+<span class="hljs-comment">//used when edge weight file is given</span>
+<span class="hljs-keyword">struct</span> neighbor_info {
+  std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span> cw_map;
+
+  neighbor_info() :
+      cw_map() {
+  }
+  neighbor_info(size_t clst, <span class="hljs-keyword">double</span> weight) :
+      cw_map() {
+    cw_map.insert(std::make_pair(clst, weight));
+  }
+
+  neighbor_info&amp; <span class="hljs-keyword">operator</span>+=(<span class="hljs-keyword">const</span> neighbor_info&amp; other) {
+    <span class="hljs-keyword">for</span> (std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>::const_iterator iter = other.cw_map.begin();
+        iter != other.cw_map.end(); iter++) {
+      size_t clst = iter-&gt;first;
+      <span class="hljs-keyword">if</span> (cw_map.find(clst) == cw_map.end()) {
+        cw_map.insert(std::make_pair(clst, iter-&gt;second));
+      } <span class="hljs-keyword">else</span> {
+        cw_map[clst] += iter-&gt;second;
+      }
+    }
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+  }
+
+  <span class="hljs-keyword">void</span> save(graphlab::oarchive&amp; oarc) <span class="hljs-keyword">const</span> {
+    oarc &lt;&lt; cw_map;
+  }
+  <span class="hljs-keyword">void</span> load(graphlab::iarchive&amp; iarc) {
+    iarc &gt;&gt; cw_map;
+  }
+};
+
+<span class="hljs-comment">//used when edge weight file is given</span>
+<span class="hljs-keyword">class</span> cluster_assignment: <span class="hljs-keyword">public</span> graphlab::ivertex_program&lt;graph_type,
+    neighbor_info&gt;, <span class="hljs-keyword">public</span> graphlab::IS_POD_TYPE {
+<span class="hljs-keyword">public</span>:
+  <span class="hljs-comment">//gather on all the edges</span>
+  edge_dir_type gather_edges(icontext_type&amp; context,
+      <span class="hljs-keyword">const</span> vertex_type&amp; vertex) <span class="hljs-keyword">const</span> {
+    <span class="hljs-keyword">return</span> graphlab::ALL_EDGES;
+  }
+
+  <span class="hljs-comment">//for each edge gather the weights and the assigned clusters of the neighbors</span>
+  neighbor_info gather(icontext_type&amp; context, <span class="hljs-keyword">const</span> vertex_type&amp; vertex,
+      edge_type&amp; edge) <span class="hljs-keyword">const</span> {
+    <span class="hljs-keyword">if</span> (edge.source().id() == vertex.id()) { <span class="hljs-comment">//out edge</span>
+      <span class="hljs-keyword">return</span> neighbor_info(edge.target().data().best_cluster,
+          edge.data().weight);
+    } <span class="hljs-keyword">else</span> { <span class="hljs-comment">//in edge</span>
+      <span class="hljs-keyword">return</span> neighbor_info(edge.source().data().best_cluster,
+          edge.data().weight);
+    }
+  }
+
+  <span class="hljs-comment">//assign a cluster, considering the clusters of neighbors</span>
+  <span class="hljs-keyword">void</span> apply(icontext_type&amp; context, vertex_type&amp; vertex,
+      <span class="hljs-keyword">const</span> gather_type&amp; total) {
+    size_t past_clst = vertex.data().best_cluster;
+    vertex.data().best_cluster = (size_t) (-<span class="hljs-number">1</span>);
+    vertex.data().best_distance = std::numeric_limits&lt;<span class="hljs-keyword">double</span>&gt;::infinity();
+    <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>; i &lt; NUM_CLUSTERS; ++i) {
+      <span class="hljs-keyword">if</span> (CLUSTERS[i].center.size() &gt; <span class="hljs-number">0</span> || CLUSTERS[i].center_sparse.size() &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">double</span> d = <span class="hljs-number">0.0</span>;
+        <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">true</span>)
+          d = sqr_distance(vertex.data().point_sparse, CLUSTERS[i].center_sparse);
+        <span class="hljs-keyword">else</span>
+          d = sqr_distance(vertex.data().point, CLUSTERS[i].center);
+        <span class="hljs-comment">//consider neighbors</span>
+        <span class="hljs-keyword">const</span> std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>&amp; cw_map = total.cw_map;
+        <span class="hljs-keyword">for</span> (std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>::const_iterator iter = cw_map.begin();
+            iter != cw_map.end(); iter++) {
+          size_t neighbor_cluster = iter-&gt;first;
+          <span class="hljs-keyword">double</span> total_wieght = iter-&gt;second;
+          <span class="hljs-keyword">if</span> (i == neighbor_cluster)
+            d -= total_wieght;
+        }
+        <span class="hljs-keyword">if</span> (d &lt; vertex.data().best_distance) {
+          vertex.data().best_distance = d;
+          vertex.data().best_cluster = i;
+        }
+      }
+    }
+    vertex.data().changed = (past_clst != vertex.data().best_cluster);
+  }
+
+  <span class="hljs-comment">//send signals to the neighbors when the cluster assignment has changed</span>
+  edge_dir_type scatter_edges(icontext_type&amp; context,
+      <span class="hljs-keyword">const</span> vertex_type&amp; vertex) <span class="hljs-keyword">const</span> {
+    <span class="hljs-keyword">if</span> (vertex.data().changed)
+      <span class="hljs-keyword">return</span> graphlab::ALL_EDGES;
+    <span class="hljs-keyword">else</span>
+      <span class="hljs-keyword">return</span> graphlab::NO_EDGES;
+  }
+
+  <span class="hljs-keyword">void</span> scatter(icontext_type&amp; context, <span class="hljs-keyword">const</span> vertex_type&amp; vertex,
+      edge_type&amp; edge) <span class="hljs-keyword">const</span> {
+  }
+};
+
+
+
+<span class="hljs-comment">/*
+ * computes new cluster centers
+ * Also accumulates a counter counting the number of vertices which
+ * assignments changed.
+ */</span>
+<span class="hljs-keyword">struct</span> cluster_center_reducer {
+  std::<span class="hljs-stl_container"><span class="hljs-built_in">vector</span>&lt;cluster&gt;</span> new_clusters;
+  size_t num_changed;
+  <span class="hljs-keyword">double</span> cost;
+
+  cluster_center_reducer():new_clusters(NUM_CLUSTERS), num_changed(<span class="hljs-number">0</span>), cost(<span class="hljs-number">0</span>) { }
+
+  <span class="hljs-keyword">static</span> cluster_center_reducer get_center(<span class="hljs-keyword">const</span> graph_type::vertex_type&amp; v) {
+    cluster_center_reducer cc;
+    ASSERT_NE(v.data().best_cluster, (size_t)(-<span class="hljs-number">1</span>));
+
+    <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">true</span>)
+      cc.new_clusters[v.data().best_cluster].center_sparse = v.data().point_sparse;
+    <span class="hljs-keyword">else</span>
+      cc.new_clusters[v.data().best_cluster].center = v.data().point;
+    cc.new_clusters[v.data().best_cluster].count = <span class="hljs-number">1</span>;
+    cc.num_changed = v.data().changed;
+    cc.cost = v.data().best_distance;
+    <span class="hljs-keyword">return</span> cc;
+  }
+
+  cluster_center_reducer&amp; <span class="hljs-keyword">operator</span>+=(<span class="hljs-keyword">const</span> cluster_center_reducer&amp; other) {
+    <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; NUM_CLUSTERS; ++i) {
+      <span class="hljs-keyword">if</span> (new_clusters[i].count == <span class="hljs-number">0</span>) new_clusters[i] = other.new_clusters[i];
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (other.new_clusters[i].count &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">true</span>)
+          plus_equal_vector(new_clusters[i].center_sparse, other.new_clusters[i].center_sparse);
+        <span class="hljs-keyword">else</span>
+          plus_equal_vector(new_clusters[i].center, other.new_clusters[i].center);
+        new_clusters[i].count += other.new_clusters[i].count;
+      }
+    }
+    num_changed += other.num_changed;
+    cost += other.cost;
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;
+  }
+
+  <span class="hljs-keyword">void</span> save(graphlab::oarchive&amp; oarc) <span class="hljs-keyword">const</span> {
+    oarc &lt;&lt; new_clusters &lt;&lt; num_changed &lt;&lt;cost;
+  }
+
+  <span class="hljs-keyword">void</span> load(graphlab::iarchive&amp; iarc) {
+    iarc &gt;&gt; new_clusters &gt;&gt; num_changed &gt;&gt; cost;
+  }
+};
+
+<span class="hljs-keyword">struct</span> vertex_writer {
+  std::<span class="hljs-built_in">string</span> save_vertex(graph_type::vertex_type v) {
+    std::<span class="hljs-built_in">stringstream</span> strm;
+    <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; v.data().point.size(); ++i) {
+      strm &lt;&lt; v.data().point[i] &lt;&lt; <span class="hljs-string">"\t"</span>;
+    }
+    strm &lt;&lt; v.data().best_distance &lt;&lt; <span class="hljs-string">"\t"</span>;
+    strm &lt;&lt; v.data().best_cluster &lt;&lt; <span class="hljs-string">"\n"</span>;
+    strm.flush();
+    <span class="hljs-keyword">return</span> strm.str();
+  }
+
+  std::<span class="hljs-built_in">string</span> save_edge(graph_type::edge_type e) { <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>; }
+};
+
+<span class="hljs-keyword">struct</span> vertex_writer_sparse {
+  std::<span class="hljs-built_in">string</span> save_vertex(graph_type::vertex_type v) {
+    std::<span class="hljs-built_in">stringstream</span> strm;
+    <span class="hljs-keyword">for</span>(std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>::iterator iter = v.data().point_sparse.begin();
+        iter != v.data().point_sparse.end();++iter){
+      strm &lt;&lt; (*iter).first &lt;&lt; <span class="hljs-string">":"</span> &lt;&lt; (*iter).second &lt;&lt; <span class="hljs-string">" "</span>;
+    }
+    strm &lt;&lt; v.data().best_cluster &lt;&lt; <span class="hljs-string">"\n"</span>;
+    strm.flush();
+    <span class="hljs-keyword">return</span> strm.str();
+  }
+
+  std::<span class="hljs-built_in">string</span> save_edge(graph_type::edge_type e) { <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>; }
+};
+
+<span class="hljs-keyword">struct</span> vertex_writer_with_id {
+  std::<span class="hljs-built_in">string</span> save_vertex(graph_type::vertex_type v) {
+    std::<span class="hljs-built_in">stringstream</span> strm;
+    strm &lt;&lt; v.id() &lt;&lt; <span class="hljs-string">"\t"</span>;
+    strm &lt;&lt; v.data().best_cluster+<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-string">"\n"</span>;
+    strm.flush();
+    <span class="hljs-keyword">return</span> strm.str();
+  }
+
+  std::<span class="hljs-built_in">string</span> save_edge(graph_type::edge_type e) { <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>; }
+};
+
+
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>** argv) {
+  std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Computes a K-means clustering of data.\n\n"</span>;
+
+  graphlab::command_line_options clopts
+    (<span class="hljs-string">"K-means clustering. The input data file is provided by the "</span>
+     <span class="hljs-string">"--data argument which is non-optional. The format of the data file is a "</span>
+     <span class="hljs-string">"collection of lines, where each line contains a comma or white-space "</span>
+     <span class="hljs-string">"separated lost of numeric values representing a vector. Every line "</span>
+     <span class="hljs-string">"must have the same number of values. The required --clusters=N "</span>
+     <span class="hljs-string">"argument denotes the number of clusters to generate. To store the output "</span>
+     <span class="hljs-string">"see the --output-cluster and --output-data arguments"</span>);
+
+  std::<span class="hljs-built_in">string</span> datafile;
+  std::<span class="hljs-built_in">string</span> outcluster_file;
+  std::<span class="hljs-built_in">string</span> outdata_file;
+  std::<span class="hljs-built_in">string</span> edgedata_file;
+  size_t MAX_ITERATION = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">bool</span> use_id = <span class="hljs-keyword">false</span>;
+  clopts.attach_option(<span class="hljs-string">"data"</span>, datafile,
+                       <span class="hljs-string">"Input file. Each line holds a white-space or comma separated numeric vector"</span>);
+  clopts.attach_option(<span class="hljs-string">"clusters"</span>, NUM_CLUSTERS,
+                       <span class="hljs-string">"The number of clusters to create."</span>);
+  clopts.attach_option(<span class="hljs-string">"output-clusters"</span>, outcluster_file,
+                       <span class="hljs-string">"If set, will write a file containing cluster centers "</span>
+                       <span class="hljs-string">"to this filename. This must be on the local filesystem "</span>
+                       <span class="hljs-string">"and must be accessible to the root node."</span>);
+  clopts.attach_option(<span class="hljs-string">"output-data"</span>, outdata_file,
+                       <span class="hljs-string">"If set, will output a copy of the input data with an additional "</span>
+                       <span class="hljs-string">"two columns. The first added column is the distance to assigned "</span>
+                       <span class="hljs-string">"center and the last is the assigned cluster centers. The output "</span>
+                       <span class="hljs-string">"will be written to a sequence of filenames where each file is "</span>
+                       <span class="hljs-string">"prefixed by this value. This may be on HDFS."</span>);
+  clopts.attach_option(<span class="hljs-string">"sparse"</span>, IS_SPARSE,
+                       <span class="hljs-string">"If set to true, will use a sparse vector representation."</span>
+                       <span class="hljs-string">"The file format is [feature id]:[value] [feature id]:[value] ..."</span>
+                       <span class="hljs-string">", where [feature id] must be positive integer or zero."</span>);
+  clopts.attach_option(<span class="hljs-string">"id"</span>, use_id,
+                       <span class="hljs-string">"If set to true, will use ids for data points. The id of a data point "</span>
+                       <span class="hljs-string">"must be written at the head of each line of the input data. "</span>
+                       <span class="hljs-string">"The output data will consist of two columns: the first one "</span>
+                       <span class="hljs-string">"denotes the ids; the second one denotes the assigned clusters."</span>);
+  clopts.attach_option(<span class="hljs-string">"pairwise-reward"</span>, edgedata_file,
+                       <span class="hljs-string">"If set, will consider pairwise rewards when clustering. "</span>
+                       <span class="hljs-string">"Each line of the file beginning with the argument holds [id1] [id2] "</span>
+                       <span class="hljs-string">"[reward]. This mode must be used with --id option."</span>);
+  clopts.attach_option(<span class="hljs-string">"max-iteration"</span>, MAX_ITERATION,
+                       <span class="hljs-string">"The max number of iterations"</span>);
+
+  <span class="hljs-keyword">if</span>(!clopts.parse(argc, argv)) <span class="hljs-keyword">return</span> EXIT_FAILURE;
+  <span class="hljs-keyword">if</span> (datafile == <span class="hljs-string">""</span>) {
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"--data is not optional\n"</span>;
+    <span class="hljs-keyword">return</span> EXIT_FAILURE;
+  }
+  <span class="hljs-keyword">if</span> (NUM_CLUSTERS == <span class="hljs-number">0</span>) {
+    std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"--clusters is not optional\n"</span>;
+    <span class="hljs-keyword">return</span> EXIT_FAILURE;
+  }
+  <span class="hljs-keyword">if</span>(edgedata_file.size() &gt; <span class="hljs-number">0</span>){
+    <span class="hljs-keyword">if</span>(use_id == <span class="hljs-keyword">false</span>){
+      std::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"--id is not optional when you use edge data\n"</span>;
+      <span class="hljs-keyword">return</span> EXIT_FAILURE;
+    }
+  }
+
+  graphlab::mpi_tools::init(argc, argv);
+  graphlab::distributed_control dc;
+  <span class="hljs-comment">// load graph</span>
+  graph_type graph(dc, clopts);
+  NEXT_VID = (((graphlab::vertex_id_type)<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">31</span>) / dc.numprocs()) * dc.procid();
+  <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">true</span>){
+    <span class="hljs-keyword">if</span>(use_id){
+      graph.load(datafile, vertex_loader_with_id_sparse);
+    }<span class="hljs-keyword">else</span>{
+      graph.load(datafile, vertex_loader_sparse);
+    }
+  }<span class="hljs-keyword">else</span>{
+    <span class="hljs-keyword">if</span>(use_id){
+      graph.load(datafile, vertex_loader_with_id);
+    }<span class="hljs-keyword">else</span>{
+      graph.load(datafile, vertex_loader);
+    }
+  }
+  <span class="hljs-keyword">if</span>(edgedata_file.size() &gt; <span class="hljs-number">0</span>){
+    graph.load(edgedata_file, edge_loader);
+  }
+  graph.finalize();
+  dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Number of datapoints: "</span> &lt;&lt; graph.num_vertices() &lt;&lt; std::endl;
+
+  <span class="hljs-keyword">if</span> (graph.num_vertices() &lt; NUM_CLUSTERS) {
+    dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"More clusters than datapoints! Cannot proceed"</span> &lt;&lt; std::endl;
+    <span class="hljs-keyword">return</span> EXIT_FAILURE;
+  }
+
+  dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Validating data..."</span>;
+
+
+  CLUSTERS.resize(NUM_CLUSTERS);
+  <span class="hljs-comment">// make sure all have the same array length</span>
+  <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">false</span>){
+    size_t max_p_size = graph.map_reduce_vertices&lt;max_point_size_reducer&gt;
+                                  (max_point_size_reducer::get_max_point_size).max_point_size;
+    size_t min_p_size = graph.map_reduce_vertices&lt;min_point_size_reducer&gt;
+                                  (min_point_size_reducer::get_min_point_size).min_point_size;
+    <span class="hljs-keyword">if</span> (max_p_size != min_p_size) {
+      dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Data has dimensionality ranging from "</span> &lt;&lt; min_p_size &lt;&lt; <span class="hljs-string">" to "</span> &lt;&lt; max_p_size
+                &lt;&lt; <span class="hljs-string">"! K-means cannot proceed!"</span> &lt;&lt; std::endl;
+      <span class="hljs-keyword">return</span> EXIT_FAILURE;
+    }
+    <span class="hljs-comment">// allocate clusters</span>
+    <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; NUM_CLUSTERS; ++i) {
+      CLUSTERS[i].center.resize(max_p_size);
+    }
+  }
+
+  dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Initializing using Kmeans++\n"</span>;
+  <span class="hljs-comment">// ok. perform kmeans++ initialization</span>
+  <span class="hljs-keyword">for</span> (KMEANS_INITIALIZATION = <span class="hljs-number">0</span>;
+       KMEANS_INITIALIZATION &lt; NUM_CLUSTERS;
+       ++KMEANS_INITIALIZATION) {
+
+    <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">true</span>){
+      random_sample_reducer_sparse rs = graph.map_reduce_vertices&lt;random_sample_reducer_sparse&gt;
+                                        (random_sample_reducer_sparse::get_weight);
+      CLUSTERS[KMEANS_INITIALIZATION].center_sparse = rs.vtx;
+      graph.transform_vertices(kmeans_pp_initialization_sparse);
+    }<span class="hljs-keyword">else</span>{
+      random_sample_reducer rs = graph.map_reduce_vertices&lt;random_sample_reducer&gt;
+                                        (random_sample_reducer::get_weight);
+      CLUSTERS[KMEANS_INITIALIZATION].center = rs.vtx;
+      graph.transform_vertices(kmeans_pp_initialization);
+    }
+  }
+
+  <span class="hljs-comment">// "reset" all clusters</span>
+  <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>; i &lt; NUM_CLUSTERS; ++i) CLUSTERS[i].changed = <span class="hljs-keyword">true</span>;
+  <span class="hljs-comment">// perform Kmeans iteration</span>
+
+  dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Running Kmeans...\n"</span>;
+  <span class="hljs-keyword">bool</span> clusters_changed = <span class="hljs-keyword">true</span>;
+  size_t iteration_count = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">while</span>(clusters_changed) {
+                <span class="hljs-keyword">if</span>(MAX_ITERATION &gt; <span class="hljs-number">0</span> &amp;&amp; iteration_count &gt;= MAX_ITERATION)
+                        <span class="hljs-keyword">break</span>;
+
+    cluster_center_reducer cc = graph.map_reduce_vertices&lt;cluster_center_reducer&gt;
+                                    (cluster_center_reducer::get_center);
+    <span class="hljs-comment">// the first round (iteration_count == 0) is not so meaningful</span>
+    <span class="hljs-comment">// since I am just recomputing the centers from the output of the KMeans++</span>
+    <span class="hljs-comment">// initialization</span>
+    <span class="hljs-keyword">if</span> (iteration_count &gt; <span class="hljs-number">0</span>) {
+      dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Kmeans iteration "</span> &lt;&lt; iteration_count &lt;&lt; <span class="hljs-string">": "</span> &lt;&lt;
+                 <span class="hljs-string">"# points with changed assignments = "</span> &lt;&lt; cc.num_changed &lt;&lt; 
+                 <span class="hljs-string">" total cost: "</span> &lt;&lt; cc.cost &lt;&lt; std::endl;
+    }
+    <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; NUM_CLUSTERS; ++i) {
+      <span class="hljs-keyword">double</span> d = cc.new_clusters[i].count;
+      <span class="hljs-keyword">if</span>(IS_SPARSE){
+        <span class="hljs-keyword">if</span> (d &gt; <span class="hljs-number">0</span>) scale_vector(cc.new_clusters[i].center_sparse, <span class="hljs-number">1.0</span> / d);
+        <span class="hljs-keyword">if</span> (cc.new_clusters[i].count == <span class="hljs-number">0</span> &amp;&amp; CLUSTERS[i].count &gt; <span class="hljs-number">0</span>) {
+          dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Cluster "</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" lost"</span> &lt;&lt; std::endl;
+          CLUSTERS[i].center_sparse.clear();
+          CLUSTERS[i].count = <span class="hljs-number">0</span>;
+          CLUSTERS[i].changed = <span class="hljs-keyword">false</span>;
+        }
+        <span class="hljs-keyword">else</span> {
+          CLUSTERS[i] = cc.new_clusters[i];
+          CLUSTERS[i].changed = <span class="hljs-keyword">true</span>;
+        }
+      }<span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">if</span> (d &gt; <span class="hljs-number">0</span>) scale_vector(cc.new_clusters[i].center, <span class="hljs-number">1.0</span> / d);
+        <span class="hljs-keyword">if</span> (cc.new_clusters[i].count == <span class="hljs-number">0</span> &amp;&amp; CLUSTERS[i].count &gt; <span class="hljs-number">0</span>) {
+          dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Cluster "</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" lost"</span> &lt;&lt; std::endl;
+          CLUSTERS[i].center.clear();
+          CLUSTERS[i].count = <span class="hljs-number">0</span>;
+          CLUSTERS[i].changed = <span class="hljs-keyword">false</span>;
+        }
+        <span class="hljs-keyword">else</span> {
+          CLUSTERS[i] = cc.new_clusters[i];
+          CLUSTERS[i].changed = <span class="hljs-keyword">true</span>;
+        }
+      }
+    }
+    clusters_changed = iteration_count == <span class="hljs-number">0</span> || cc.num_changed &gt; <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">if</span>(edgedata_file.size() &gt; <span class="hljs-number">0</span>){
+      clopts.engine_args.set_option(<span class="hljs-string">"factorized"</span>, <span class="hljs-keyword">true</span>);
+      graphlab::omni_engine&lt;cluster_assignment&gt; engine(dc, graph, <span class="hljs-string">"async"</span>, clopts);
+      engine.signal_all();
+      engine.start();
+    }<span class="hljs-keyword">else</span>{
+      graph.transform_vertices(kmeans_iteration);
+    }
+
+    ++iteration_count;
+  }
+
+
+  <span class="hljs-keyword">if</span> (!outcluster_file.empty() &amp;&amp; dc.procid() == <span class="hljs-number">0</span>) {
+    dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Writing Cluster Centers..."</span> &lt;&lt; std::endl;
+    std::ofstream fout(outcluster_file.c_str());
+    <span class="hljs-keyword">if</span>(IS_SPARSE){
+      <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; NUM_CLUSTERS; ++i) {
+        <span class="hljs-keyword">if</span>(use_id)
+          fout &lt;&lt; i+<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-string">"\t"</span>;
+        <span class="hljs-keyword">for</span> (std::<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;size_t, <span class="hljs-keyword">double</span>&gt;</span>::iterator iter = CLUSTERS[i].center_sparse.begin();
+             iter != CLUSTERS[i].center_sparse.end();++iter) {
+          fout &lt;&lt; (*iter).first &lt;&lt; <span class="hljs-string">":"</span> &lt;&lt; (*iter).second &lt;&lt; <span class="hljs-string">" "</span>;
+        }
+        fout &lt;&lt; <span class="hljs-string">"\n"</span>;
+      }
+    }<span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">for</span> (size_t i = <span class="hljs-number">0</span>;i &lt; NUM_CLUSTERS; ++i) {
+        <span class="hljs-keyword">if</span>(use_id)
+          fout &lt;&lt; i+<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-string">"\t"</span>;
+        <span class="hljs-keyword">for</span> (size_t j = <span class="hljs-number">0</span>; j &lt; CLUSTERS[i].center.size(); ++j) {
+          fout &lt;&lt; CLUSTERS[i].center[j] &lt;&lt; <span class="hljs-string">" "</span>;
+        }
+        fout &lt;&lt; <span class="hljs-string">"\n"</span>;
+      }
+    }
+  }
+
+  <span class="hljs-keyword">if</span> (!outdata_file.empty()) {
+    dc.<span class="hljs-built_in">cout</span>() &lt;&lt; <span class="hljs-string">"Writing Data with cluster assignments...\n"</span> &lt;&lt; std::endl;
+    <span class="hljs-keyword">if</span>(use_id){
+      graph.save(outdata_file, vertex_writer_with_id(), <span class="hljs-keyword">false</span>, <span class="hljs-keyword">true</span>, <span class="hljs-keyword">false</span>, <span class="hljs-number">1</span>);
+    }<span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">if</span>(IS_SPARSE == <span class="hljs-keyword">true</span>)
+        graph.save(outdata_file, vertex_writer_sparse(), <span class="hljs-keyword">false</span>, <span class="hljs-keyword">true</span>, <span class="hljs-keyword">false</span>, <span class="hljs-number">1</span>);
+      <span class="hljs-keyword">else</span>
+        graph.save(outdata_file, vertex_writer(), <span class="hljs-keyword">false</span>, <span class="hljs-keyword">true</span>, <span class="hljs-keyword">false</span>, <span class="hljs-number">1</span>);
+    }
+  }
+
+  graphlab::mpi_tools::finalize();
+}
+</code></pre>
+<p>This comparison shows that high-level query interface in SociaLite is much simpler to program than vertex-centeric programming model.</p>
+</div>
+</article>
+		</section>
+
+		<!-- Footer -->
+		<!-- <footer>
+			<p class="pull-left">&copy; Company 2016</p>
+			<p class="pull-right">
+				This website was last updated at 2016-07-19T06:34:46.052Z
+			</p>
+		</footer>  -->
+		<footer>
+		<br>
+		<br>
+		<br>
+		</footer>
+	</div><!-- /container -->
+
+	<!-- Scripts -->
+	<!--<script defer="defer"  src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script defer="defer"  src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script><script defer="defer"  src="/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"></script><script defer="defer"  src="/scripts/script.js"></script><script defer="defer"  src="/scripts/copybutton.js"></script> -->
+	<script defer="defer"  src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script defer="defer"  src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script><script defer="defer"  src="http://socialite-lang.github.io/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"></script><script defer="defer"  src="http://socialite-lang.github.io/scripts/script.js"></script><script defer="defer"  src="http://socialite-lang.github.io/scripts/copybutton.js"></script>
+</body>
+</html>

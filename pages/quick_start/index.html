@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!-- -->
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+		 More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<!-- Our site title and description -->
+	<title>Quick Start | SociaLite</title>
+	<meta name="description" content="SociaLite, distributed query language for large-scale data analysis." />
+	<meta name="keywords" content="data, graph, analysis, distributed, parallel, query, language" />
+	<meta name="author" content="SociaLite-Lang" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.78.6" />
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+	<link rel="shortcut icon" href="http://socialite-lang.github.io/images/icons/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="http://socialite-lang.github.io/images/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<!--<link  rel="stylesheet" href="/styles/twitter-bootstrap.css" /><link  rel="stylesheet" href="/styles/style.css" /><link  rel="stylesheet" href="/styles/googlecode.css" />-->
+	<link  rel="stylesheet" href="http://socialite-lang.github.io/styles/twitter-bootstrap.css" /><link  rel="stylesheet" href="http://socialite-lang.github.io/styles/style.css" /><link  rel="stylesheet" href="http://socialite-lang.github.io/styles/googlecode.css" />
+</head>
+<body>
+	<!-- Menu -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://socialite-lang.github.io/">SociaLite</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/news"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/news" property="dc:title">
+								News
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/install"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/install" property="dc:title">
+								Install
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/quick_start"
+							class="active"
+						>
+							<a href="http://socialite-lang.github.io/pages/quick_start" property="dc:title">
+								Quick Start
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/documentation"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/documentation" property="dc:title">
+								Documentation
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/community"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/community" property="dc:title">
+								Community
+							</a>
+						</li>
+					
+						<li
+							typeof="sioc:Page"
+							about="/pages/about"
+							class=""
+						>
+							<a href="http://socialite-lang.github.io/pages/about" property="dc:title">
+								About
+							</a>
+						</li>
+					
+				</ul>
+			</div><!--/.navbar-collapse -->
+
+			
+		</div>
+	</div>
+
+	<!-- Content -->
+	
+	
+        <div class="page-banner">
+            <div class="container">
+                <div class="page-content">Quick Start</div>
+            </div></div>
+        
+
+	<div class="container">
+		<!-- Content -->
+		<section id="content" class="content">
+			<br>
+
+<article id="page" class="page">
+	<div class="page-content"><p><br></p>
+<p>SociaLite is a parallel/distributed query language. SociaLite queries are embedded in Java programs or Python (Jython) scripts, and compiled to parallel/distributed Java code. The easiest way to learn SociaLite is through the SociaLite interactive shell.</p>
+<h3 id="-b-starting-a-socialite-shell-b-"><b>Starting a SociaLite Shell</b></h3>
+<p>To start using the SociaLite interactive shell, first <a href="../install">install SociaLite</a> and run <code>bin/socialite</code>. To run a script, pass the script name such as <code>bin/socialite script-name.py</code>.
+The SociaLite interactive shell is a Jython shell extended to support SociaLite queries. 
+Normally the shell expects Python code, and SociaLite queries are enclosed in backtick(`), like following.
+Click <b>&gt;&gt;&gt;</b> on the top-right to hide the prompts.</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-keyword">print</span> <span class="hljs-string">"Python code"</span>
+<span class="hljs-string">'''Python code'''</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-comment"># Next two lines are SociaLite code</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`Friend(String n, String f).
+<span class="hljs-prompt">... </span> Friend(n, f) :- n=<span class="hljs-string">"John"</span>, f=<span class="hljs-string">"Tom"</span>.`
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-comment"># Iterating over a table</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> n, f <span class="hljs-keyword">in</span> `Friend(n, f)`:
+<span class="hljs-prompt">... </span>    <span class="hljs-keyword">print</span> n, f
+<span class="hljs-string">'''John    Tom'''</span>
+</code></pre>
+<p>The above SociaLite query creates a two-column table <em>Friend</em>, inserts one tuple {&quot;John&quot;, &quot;Tom&quot;} into the table, and iterates over the table to print the tuples.</p>
+<h3 id="-a-class-anchor-name-tables-a-b-tables-b-"><a class="anchor" name="tables"></a><b>Tables</b></h3>
+<p>In SociaLite, data is stored in (in-memory) tables, which can be declared as following.</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span>`FriendNum(String name, int num).`
+</code></pre>
+<p>This declares a table <em>FriendNum</em> that has two columns with String and int type.  Column types can be primitive types (int, long, float, and double), object types (String, Utf8, and user-defined types), and array types (int[], String[], etc). Notice that table declarations must end with a dot (.).</p>
+<p>Tables can have nested structures. Nesting is indicated by parenthesis as in <em> Friend(String i, (String f)). </em>.  The nesting must be at the end -- so, <em>Foo(int x, (int y, int z)).</em> is allowed, but <em>Foo(int x, (int y), int z).</em> is not. Multiple nestings are supported as in <em>Foo(int x, (int y, (int z))).</em></p>
+<p>Columns can have options; the followings are some of popular options.</p>
+<ol>
+<li><p><em>Range option</em>  -- e.g. <em> Foo(int i:0..10, (int j:0..20, String f, (int k:0..5))). </em></p>
+<p> Range option is for columns whose values are within a given ranges. In the example above, the first column of Foo table has values ranging from 0 to 10.  Only the first column and first of nested columns can have the range options -- the <em>i</em>,<em>j</em>,<em>k</em> columns in the above. This option allows SociaLite to optimize the columns to be represented as array indices. </p>
+</li>
+<li><p><em>Indexby option</em> -- e.g. <em> Bar(String s, double v) indexby s. </em></p>
+<p> This option adds an index to a given column. The first column of the Bar table in the example is indexed, which can make join operations faster.</p>
+</li>
+<li><p><em>Iter option</em> -- e.g. <em> Qux(int n, int i:iter, int v). </em></p>
+<p> This option is used for a table having values that are updated inside a loop.  The option supports fast access to the values at current and previous iterations by storing only the values of last two iterations.  For example, the rule <code>Qux(s, 2, x) :- Qux(s, 1, x1), x=x1+42.</code> is executed faster with the option, because Qux table only stores the values of iteration 1 and 2. See PageRank demo for an example.</p>
+</li>
+</ol>
+<p>To iterate elements over a table, you can simply do following</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> i, j, f <span class="hljs-keyword">in</span> `Foo(i, j, f)`:
+<span class="hljs-prompt">... </span>    <span class="hljs-keyword">print</span> i,j,f
+</code></pre>
+<p>Tables are partitioned, or sharded, by its first column. That is, tables are horizontally partitioned, and the value of the first column of a tuple determines in which partition the tuple is stored. When running on a distributed cluster, the partitions (shards) are stored across the distributed machines.</p>
+<h3 id="-b-rules-b-"><b>Rules</b></h3>
+<p>In SociaLite, programming logic is expressed in <em>rules</em>. An example of a rule is shown in following.</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-comment"># first, declare tables</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`Foaf(String a, String b) indexby a.
+<span class="hljs-prompt">... </span> Friend(String a, String b) indexby a.`
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-comment"># then, run the following rule</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`Foaf(i, ff) :- Friend(i, f), Friend(f, ff).`
+</code></pre>
+<p>In the above rule, the Friend table in the rule body -- right-hand side of :- -- is joined with Friend table itself, and the result is inserted into the Foaf table in the rule head -- left-hand side of :- . More specifically, the term <em>Friend(i,f)</em> iterates each tuple from Friend table, and assigns to variable <em>i</em>, <em>f</em>; for the assigned value of <em>f</em>, matching tuples from Friend table are retrieved and assigned to variable <em>ff</em>, and the result tuple {i, ff} is added to Foaf table.  If the Friend table contains three tuples {&#39;a&#39;,&#39;b&#39;}, {&#39;b&#39;,&#39;c&#39;}, {&#39;b&#39;,&#39;d&#39;}, then the following two tuples, {&#39;a&#39;,&#39;c&#39;} and {&#39;a&#39;,&#39;d&#39;}, are inserted to Foaf table. In other words, the above rule finds friends-of-friends and store them in the Foaf table.</p>
+<p>Selecting particular tuples can be done like following.</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span>`TomsFoaf(String f) indexby f.`
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`TomsFoaf(ff) :- Friend(<span class="hljs-string">"Tom"</span>, f), Friend(f, ff).`
+</code></pre>
+<p>Here in <em>Friend(&quot;Tom&quot;, f)</em>, we select only the tuples whose first column value exactly matches &quot;Tom&quot;.  For each of such tuples, we find matching tuples in <em>Friend(f, ff)</em>, and add Tom&#39;s friends of friends in TomsFoaf table.</p>
+<p>In the following example, Foaf table stores friends as well as friends-of-friends.</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span>`Foaf(i, f) :- Friend(i, f).
+<span class="hljs-prompt">... </span> Foaf(i, ff) :- Friend(i, f), Friend(f, ff).`
+</code></pre>
+<p>The first rule adds tuples from Friend table into Foaf table, and the next rule adds friends-of-friends to Foaf table. Basically the result of the two rules are unioned and stored in Foaf table.</p>
+<p>Each rule is evaluated in parallel -- the logical partitions in the first table of the rule body are accessed by multiple cores, which evaluate the rule in parallel.</p>
+<h4 id="functions-and-aggregate-functions">Functions and Aggregate Functions</h4>
+<p>SociaLite rules support Python functions. Python functions in rules are prefixed with a dollar ($) sign as in the following example.</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-decorator">@returns(str)</span>
+<span class="hljs-prompt">... </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getLastName</span><span class="hljs-params">(fullname)</span>:</span>
+<span class="hljs-prompt">... </span>    f,l = fullname.split(<span class="hljs-string">' '</span>)
+<span class="hljs-prompt">... </span>    <span class="hljs-keyword">return</span> l
+<span class="hljs-prompt">... </span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-comment"># declare tables</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`Friend(String n, String f) indexby n.
+<span class="hljs-prompt">... </span> FriendLastName(String n, String l) indexby n.`
+<span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-comment"># insert a tuple into Friend table</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`Friend(i, f) :- i=<span class="hljs-string">"Tom Hanks"</span>, f=<span class="hljs-string">"Tom Cruise"</span>.`
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`FriendLastName(i, l) :- Friend(i, f), l=$getLastName(f).`
+</code></pre>
+<p>In the example, we first defined a function <em>getLastName</em> that returns the last name given a full name. Notice that the function is declared with a decorator <em>returns</em> which declares the type of the return value -- string type, in the above case.
+Then we declare tables, and insert a tuple {&quot;Tom Hanks&quot;, &quot;Tom Cruise&quot;} into the Friend table. The next rule computes friends&#39; last names and stores in the FriendLastName table.</p>
+<p>Aggregate functions are also supported as in the following example</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span><span class="hljs-decorator">@returns(int)</span>
+<span class="hljs-prompt">... </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">incBy</span><span class="hljs-params">(n, inc)</span>:</span>
+<span class="hljs-prompt">... </span>    <span class="hljs-keyword">return</span> n+inc
+<span class="hljs-prompt">... </span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`FriendCnt(String n, int cnt) indexby n.`
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`FriendCnt(n, $incBy(<span class="hljs-number">1</span>)) :- Friend(n, f).`
+</code></pre>
+<p>We define an aggregate function <em>incBy</em> that takes two numbers and returns the sum. Then we declare FriendCnt table that stores the number of friends for each person. In the next rule, we iterate tuples in the Friend table, and increment the friend count for person <em>n</em> by 1. That is, for each tuple {n,f} in the Friend table, SociaLite groups the FriendCnt table by the value of <em>n</em> to get the current friend count of <em>n</em>. The current count is passed to the <em>incBy</em> function along with the arguments specified in the rule -- 1 in the example. The count in the table is updated with the return value of the function, which is the current count incremented by one.</p>
+<p><strong> Built-in Functions </strong></p>
+<p>SociaLite supports various built-in functions and aggregate functions.
+Here we list a few of them; for a complete list, please see <a href="../documentation">Documentation</a>.</p>
+<table class="table-striped table-bordered table-condensed" width="720" style="margin-left:20px">
+<thead> <tr>
+<th class="span3">Function </th> <th class="span4">Description </th>
+</tr> </thead>
+<tbody>
+<tr><td>$read(&quot;file://path-to-file&quot;)</td>
+    <td>returns lines in a given file. e.g. l=$read(&quot;file://a.txt&quot;) or l=$read(&quot;hdfs://graph.txt&quot;) </td></tr>
+<tr><td>$split(&quot;src-str&quot;, &quot;delim&quot;[, maxsplit])</td>
+    <td>returns the splitted string. e.g. (a,b,c)=$split(line, &quot;;&quot;) </td></tr>
+<tr><td>$splitIter(&quot;src-str&quot;, &quot;delim&quot;)</td>
+    <td>splits the string, and returns the splitted string one by one. e.g. a=$splitIter(line, &quot;\t&quot;)</td></tr>
+<tr><td>$max(n), $min(n)</td>
+    <td>aggregate function computing max/min</td></tr>
+<tr><td>$sum(n)</td>
+    <td>aggregate function that computes the sum</td></tr>
+</tr>
+</tbody>
+</table>
+
+<p>For example, to read comma-separated values in a text file, you can write as following:</p>
+<pre class="highlight"><code class="hljs python"><span class="hljs-prompt">&gt;&gt;&gt; </span>`Values(int a, int b).`
+<span class="hljs-prompt">&gt;&gt;&gt; </span>`Values(a,b) :- l=read(<span class="hljs-string">"file://path/to/file.txt"</span>), (v1,v2)=$split(l), a=$toInt(v1), b=$toInt(v2).`
+</code></pre>
+<h3 id="-b-starting-a-socialite-shell-cluster-b-"><b>Starting a SociaLite Shell (Cluster)</b></h3>
+<p>The SociaLite programs can run on a cluster running SociaLite servers. Setting up a SociaLite cluster is described in <a href="../install">install SociaLite</a>. Once the cluster is set up, SociaLite shell can be executed with <code>-d</code> option to connect to the cluster, like <code>bin/socialite -d</code>.  To run a script in the cluster, pass the script name like <code>bin/socialite -d script-name.py</code>.</p>
+<p>You can run the same script on a single machine or on a distributed cluster. When running on a cluster, SociaLite tables are sharded by its first column and stored across the distributed tables.</p>
+<p><strong>Range-based partitioning</strong>
+If a range operator is applied e.g. <code>Foo(int a:0..100, String s).</code>, then tuples having first column values within a certain range are stored in a same partition.  For example, for the Foo table, if there are two machines in the cluster, tuples with values from 0 to 50 in the first column are stored in one machine, and the rest tuples are stored in another machine.</p>
+<p><strong>Hash-based partitioning</strong>
+If the location operator is used without the range operator, we apply hash-based partitioning where the hash of the first column value is used to determine the location to store a given tuple.</p>
+<p><i>More documentation is coming soon! </i></p>
+</div>
+</article>
+		</section>
+
+		<!-- Footer -->
+		<!-- <footer>
+			<p class="pull-left">&copy; Company 2016</p>
+			<p class="pull-right">
+				This website was last updated at 2016-07-19T06:34:46.052Z
+			</p>
+		</footer>  -->
+		<footer>
+		<br>
+		<br>
+		<br>
+		</footer>
+	</div><!-- /container -->
+
+	<!-- Scripts -->
+	<!--<script defer="defer"  src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script defer="defer"  src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script><script defer="defer"  src="/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"></script><script defer="defer"  src="/scripts/script.js"></script><script defer="defer"  src="/scripts/copybutton.js"></script> -->
+	<script defer="defer"  src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script defer="defer"  src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script><script defer="defer"  src="http://socialite-lang.github.io/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"></script><script defer="defer"  src="http://socialite-lang.github.io/scripts/script.js"></script><script defer="defer"  src="http://socialite-lang.github.io/scripts/copybutton.js"></script>
+</body>
+</html>

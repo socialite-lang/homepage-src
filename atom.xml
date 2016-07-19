@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>SociaLite</title>
+	<link href="http://socialite-lang.github.io/atom.xml" rel="self"/>
+	<link href="http://socialite-lang.github.io"/>
+	<updated>2016-07-19T06:34:46.052Z</updated>
+	<id>http://socialite-lang.github.io</id>
+	<author>
+		<name>SociaLite-Lang</name>
+		<email>socialite.language@gmail.com</email>
+	</author>
+
+	
+		<entry>
+			<title>This is a Goodbye Blog Post</title>
+			<link href="http://socialite-lang.github.io//posts/bye"/>
+			<updated>2016-07-19T05:59:39.000Z</updated>
+			<id>http://socialite-lang.github.io//posts/bye</id>
+			<content type="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+	&lt;!-- Meta --&gt;
+	&lt;meta charset=&quot;utf-8&quot; /&gt;
+	&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+	&lt;!-- --&gt;
+
+	&lt;!-- Use the .htaccess and remove these lines to avoid edge case issues.
+		 More info: h5bp.com/i/378 --&gt;
+	&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+
+	&lt;!-- Our site title and description --&gt;
+	&lt;title&gt;This is a Goodbye Blog Post | SociaLite&lt;/title&gt;
+	&lt;meta name=&quot;description&quot; content=&quot;SociaLite, distributed query language for large-scale data analysis.&quot; /&gt;
+	&lt;meta name=&quot;keywords&quot; content=&quot;data, graph, analysis, distributed, parallel, query, language&quot; /&gt;
+	&lt;meta name=&quot;author&quot; content=&quot;SociaLite-Lang&quot; /&gt;
+
+	&lt;!-- Output DocPad produced meta elements --&gt;
+	&lt;meta name=&quot;generator&quot; content=&quot;DocPad v6.78.6&quot; /&gt;
+
+	&lt;!-- Mobile viewport optimized: h5bp.com/viewport --&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
+
+	&lt;!-- Icons --&gt;
+	&lt;link rel=&quot;shortcut icon&quot; href=&quot;http://socialite-lang.github.io/images/icons/favicon.ico&quot;&gt;
+		&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;http://socialite-lang.github.io/images/icons/apple-touch-icon-144-precomposed.png&quot;&gt;
+		&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;http://socialite-lang.github.io/images/icons/apple-touch-icon-114-precomposed.png&quot;&gt;
+		&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;72x72&quot; href=&quot;http://socialite-lang.github.io/images/icons/apple-touch-icon-72-precomposed.png&quot;&gt;
+		&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;http://socialite-lang.github.io/images/icons/apple-touch-icon-57-precomposed.png&quot;&gt;
+
+	&lt;!-- Shims: IE6-8 support of HTML5 elements --&gt;
+	&lt;!--[if lt IE 9]&gt;
+		&lt;script async src=&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
+	&lt;![endif]--&gt;
+
+	&lt;!-- Styles --&gt;
+	&lt;!--&lt;link  rel=&quot;stylesheet&quot; href=&quot;/styles/twitter-bootstrap.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;/styles/googlecode.css&quot; /&gt;--&gt;
+	&lt;link  rel=&quot;stylesheet&quot; href=&quot;http://socialite-lang.github.io/styles/twitter-bootstrap.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;http://socialite-lang.github.io/styles/style.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;http://socialite-lang.github.io/styles/googlecode.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;!-- Menu --&gt;
+	&lt;div class=&quot;navbar navbar-inverse navbar-fixed-top&quot;&gt;
+		&lt;div class=&quot;container&quot;&gt;
+			&lt;div class=&quot;navbar-header&quot;&gt;
+				&lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+					&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+					&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+					&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;a class=&quot;navbar-brand&quot; href=&quot;http://socialite-lang.github.io/&quot;&gt;SociaLite&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;navbar-collapse collapse&quot;&gt;
+				&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/news&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/news&quot; property=&quot;dc:title&quot;&gt;
+								News
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/install&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/install&quot; property=&quot;dc:title&quot;&gt;
+								Install
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/quick_start&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/quick_start&quot; property=&quot;dc:title&quot;&gt;
+								Quick Start
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/documentation&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/documentation&quot; property=&quot;dc:title&quot;&gt;
+								Documentation
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/community&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/community&quot; property=&quot;dc:title&quot;&gt;
+								Community
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/about&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/about&quot; property=&quot;dc:title&quot;&gt;
+								About
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+				&lt;/ul&gt;
+			&lt;/div&gt;&lt;!--/.navbar-collapse --&gt;
+
+			
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;!-- Content --&gt;
+	
+	
+        &lt;div class=&quot;page-banner&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div class=&quot;page-content&quot;&gt;This is a Goodbye Blog Post&lt;/div&gt;
+            &lt;/div&gt;&lt;/div&gt;
+        
+
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;!-- Content --&gt;
+		&lt;section id=&quot;content&quot; class=&quot;content&quot;&gt;
+			&lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+	&lt;h1&gt;This is a Goodbye Blog Post&lt;/h1&gt;
+	&lt;div class=&quot;post-content&quot;&gt;&lt;p&gt;This is a goodbye &lt;strong&gt;blog post&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+
+&lt;footer&gt;
+	
+&lt;/footer&gt;
+		&lt;/section&gt;
+
+		&lt;!-- Footer --&gt;
+		&lt;!-- &lt;footer&gt;
+			&lt;p class=&quot;pull-left&quot;&gt;&amp;copy; Company 2016&lt;/p&gt;
+			&lt;p class=&quot;pull-right&quot;&gt;
+				This website was last updated at 2016-07-19T06:34:46.052Z
+			&lt;/p&gt;
+		&lt;/footer&gt;  --&gt;
+		&lt;footer&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+		&lt;/footer&gt;
+	&lt;/div&gt;&lt;!-- /container --&gt;
+
+	&lt;!-- Scripts --&gt;
+	&lt;!--&lt;script defer=&quot;defer&quot;  src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/vendor/twitter-bootstrap/dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/scripts/script.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/scripts/copybutton.js&quot;&gt;&lt;/script&gt; --&gt;
+	&lt;script defer=&quot;defer&quot;  src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;http://socialite-lang.github.io/vendor/twitter-bootstrap/dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;http://socialite-lang.github.io/scripts/script.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;http://socialite-lang.github.io/scripts/copybutton.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+		</entry>
+	
+		<entry>
+			<title>This is a Hello Blog Post</title>
+			<link href="http://socialite-lang.github.io//posts/hello"/>
+			<updated>2016-07-19T05:59:39.000Z</updated>
+			<id>http://socialite-lang.github.io//posts/hello</id>
+			<content type="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+	&lt;!-- Meta --&gt;
+	&lt;meta charset=&quot;utf-8&quot; /&gt;
+	&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+	&lt;!-- --&gt;
+
+	&lt;!-- Use the .htaccess and remove these lines to avoid edge case issues.
+		 More info: h5bp.com/i/378 --&gt;
+	&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+
+	&lt;!-- Our site title and description --&gt;
+	&lt;title&gt;This is a Hello Blog Post | SociaLite&lt;/title&gt;
+	&lt;meta name=&quot;description&quot; content=&quot;SociaLite, distributed query language for large-scale data analysis.&quot; /&gt;
+	&lt;meta name=&quot;keywords&quot; content=&quot;data, graph, analysis, distributed, parallel, query, language&quot; /&gt;
+	&lt;meta name=&quot;author&quot; content=&quot;SociaLite-Lang&quot; /&gt;
+
+	&lt;!-- Output DocPad produced meta elements --&gt;
+	&lt;meta name=&quot;generator&quot; content=&quot;DocPad v6.78.6&quot; /&gt;
+
+	&lt;!-- Mobile viewport optimized: h5bp.com/viewport --&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
+
+	&lt;!-- Icons --&gt;
+	&lt;link rel=&quot;shortcut icon&quot; href=&quot;http://socialite-lang.github.io/images/icons/favicon.ico&quot;&gt;
+		&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;http://socialite-lang.github.io/images/icons/apple-touch-icon-144-precomposed.png&quot;&gt;
+		&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;http://socialite-lang.github.io/images/icons/apple-touch-icon-114-precomposed.png&quot;&gt;
+		&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;72x72&quot; href=&quot;http://socialite-lang.github.io/images/icons/apple-touch-icon-72-precomposed.png&quot;&gt;
+		&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;http://socialite-lang.github.io/images/icons/apple-touch-icon-57-precomposed.png&quot;&gt;
+
+	&lt;!-- Shims: IE6-8 support of HTML5 elements --&gt;
+	&lt;!--[if lt IE 9]&gt;
+		&lt;script async src=&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
+	&lt;![endif]--&gt;
+
+	&lt;!-- Styles --&gt;
+	&lt;!--&lt;link  rel=&quot;stylesheet&quot; href=&quot;/styles/twitter-bootstrap.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;/styles/style.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;/styles/googlecode.css&quot; /&gt;--&gt;
+	&lt;link  rel=&quot;stylesheet&quot; href=&quot;http://socialite-lang.github.io/styles/twitter-bootstrap.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;http://socialite-lang.github.io/styles/style.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;http://socialite-lang.github.io/styles/googlecode.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;!-- Menu --&gt;
+	&lt;div class=&quot;navbar navbar-inverse navbar-fixed-top&quot;&gt;
+		&lt;div class=&quot;container&quot;&gt;
+			&lt;div class=&quot;navbar-header&quot;&gt;
+				&lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+					&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+					&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+					&lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;a class=&quot;navbar-brand&quot; href=&quot;http://socialite-lang.github.io/&quot;&gt;SociaLite&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;navbar-collapse collapse&quot;&gt;
+				&lt;ul class=&quot;nav navbar-nav&quot;&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/news&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/news&quot; property=&quot;dc:title&quot;&gt;
+								News
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/install&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/install&quot; property=&quot;dc:title&quot;&gt;
+								Install
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/quick_start&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/quick_start&quot; property=&quot;dc:title&quot;&gt;
+								Quick Start
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/documentation&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/documentation&quot; property=&quot;dc:title&quot;&gt;
+								Documentation
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/community&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/community&quot; property=&quot;dc:title&quot;&gt;
+								Community
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+						&lt;li
+							typeof=&quot;sioc:Page&quot;
+							about=&quot;/pages/about&quot;
+							class=&quot;&quot;
+						&gt;
+							&lt;a href=&quot;http://socialite-lang.github.io/pages/about&quot; property=&quot;dc:title&quot;&gt;
+								About
+							&lt;/a&gt;
+						&lt;/li&gt;
+					
+				&lt;/ul&gt;
+			&lt;/div&gt;&lt;!--/.navbar-collapse --&gt;
+
+			
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;!-- Content --&gt;
+	
+	
+        &lt;div class=&quot;page-banner&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div class=&quot;page-content&quot;&gt;This is a Hello Blog Post&lt;/div&gt;
+            &lt;/div&gt;&lt;/div&gt;
+        
+
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;!-- Content --&gt;
+		&lt;section id=&quot;content&quot; class=&quot;content&quot;&gt;
+			&lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+	&lt;h1&gt;This is a Hello Blog Post&lt;/h1&gt;
+	&lt;div class=&quot;post-content&quot;&gt;&lt;p&gt;This is a hello &lt;strong&gt;blog post&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/article&gt;
+
+&lt;footer&gt;
+	
+&lt;/footer&gt;
+		&lt;/section&gt;
+
+		&lt;!-- Footer --&gt;
+		&lt;!-- &lt;footer&gt;
+			&lt;p class=&quot;pull-left&quot;&gt;&amp;copy; Company 2016&lt;/p&gt;
+			&lt;p class=&quot;pull-right&quot;&gt;
+				This website was last updated at 2016-07-19T06:34:46.052Z
+			&lt;/p&gt;
+		&lt;/footer&gt;  --&gt;
+		&lt;footer&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+		&lt;/footer&gt;
+	&lt;/div&gt;&lt;!-- /container --&gt;
+
+	&lt;!-- Scripts --&gt;
+	&lt;!--&lt;script defer=&quot;defer&quot;  src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/vendor/twitter-bootstrap/dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/scripts/script.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/scripts/copybutton.js&quot;&gt;&lt;/script&gt; --&gt;
+	&lt;script defer=&quot;defer&quot;  src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;http://socialite-lang.github.io/vendor/twitter-bootstrap/dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;http://socialite-lang.github.io/scripts/script.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;http://socialite-lang.github.io/scripts/copybutton.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+		</entry>
+	
+</feed>
